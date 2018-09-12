@@ -74,7 +74,7 @@ function connect() {
                 cell4.innerHTML=message[i].close;
             }
             else{
-                table.rows[1].cells[1].innerHTML="111"
+                table.rows[1].cells[3].innerHTML=message[0].open;
             }
             flag=1;
             console.clear();

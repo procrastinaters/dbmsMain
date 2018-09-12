@@ -5,6 +5,7 @@ import com.example.jdbctrial.InformationObjects.Stock;
 import com.example.jdbctrial.InsertIntoTables.InsertToStocks;
 import com.example.jdbctrial.ReadTables.ReadAccount;
 import com.example.jdbctrial.ReadTables.ReadStocks;
+import com.example.jdbctrial.UpdateTables.UpdateStocks;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
@@ -81,6 +82,11 @@ public class Database{
         return readAccount.read(myConn);
     }
 
+
+    public void updateStocks(Stock[] stocks){
+
+        new UpdateStocks(myConn,stocks);
+    }
     private void create() throws SQLException {
 
         new CreateUserTable(myConn);
