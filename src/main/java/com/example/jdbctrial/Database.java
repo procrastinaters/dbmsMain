@@ -58,7 +58,7 @@ public class Database{
             ReadStocks readStocks=new ReadStocks();
             ResultSet resultSet=readStocks.read(myConn);
             resultSet.first();
-            while(resultSet.next()) {
+            do{
                 stocks.add(new Stock(resultSet.getString("symbol"),
                         resultSet.getString("company"),
                         resultSet.getString("exchng"),
@@ -68,7 +68,7 @@ public class Database{
                         resultSet.getFloat("prevClose"),
                         resultSet.getFloat("price"),
                         resultSet.getDouble("per")));
-            }
+            }while(resultSet.next());
         }catch (Exception exc){
             exc.printStackTrace();
         }
