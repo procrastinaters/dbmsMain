@@ -19,6 +19,10 @@ public class UpdateStocks {
                 stock[i].getOpen().toString() +
                 ", prevClose=" +
                 stock[i].getPreviousClose().toString() +
+                " ,close=" +
+                stock[i].getClose()+
+                " ,price="+
+                stock[i].getLatestPrice()+
                 " WHERE symbol=" +
                 "\'"+
                 stock[i].getSymbol() +
