@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Hub</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+    <link rel="icon"
+          type="image/png"
+          href="http://example.com/myicon.png">
+</head>
+<body>
+
+        <img src="#" style="height: 10vh;width: 3vh;">
+
+    <center>
+        <header class="w3-container" style="margin-top: 10vh">
+            <h1>Log In</h1><br>
+            <h4>New to Stockhub?&nbsp;
+            <a href="signup.html">Sign Up</a></h4>
+        </header>
+    </center>
+<div class="vr">&nbsp;</div>
+
+    <div>
+        <div class="split left" >
+            <div class="centered">
+        <form class="form-horizontal" id="registrationForm">
+        
+        <div class="form-group">                  
+          <div class="col-xs-12">
+            <div class="styled-input name logininput">
+                <input type="text" id="username" required/>
+                <label>Username</label>
+                <span></span> </div>
+          </div>
+        </div>
+
+        <div class="form-group">                  
+          <div class="col-xs-12">
+                <div class="styled-input validate-input name">
+                        <input type="password" id="password" required />
+                        <label>Password</label>
+                <span></span> </div>  
+          </div>
+        </div>
+
+        <a class="link" href="#">Forgot Password?</a>
+
+            <h3 id="mssg"></h3>
+
+        <div class="form-group">                  
+          <div class="col-xs-12">
+                        <div class="btns">  
+                <button id="signup" type="button">
+                      Login
+                </button>
+          </div>
+        </div>
+    </div>
+
+
+
+</form>
+
+
+<!--
+     <div class="form loginform">
+        <form class="login">
+  
+
+            <div class="elements">
+            <div class="styled-input name logininput">
+                <input type="text" required/>
+                <label>Username</label>
+                <span></span> </div>                
+                <div class="styled-input validate-input name">
+                        <input type="password" required />
+                        <label>Password</label>
+                <span></span> </div>  
+                <div class="btns">  
+                <button class="signup bttn">
+                    <div class="btntext">
+                        LOGIN
+                    </div>
+                </button>
+                <button class="signbtn">
+                        <div class="signtext">
+                            Not Registered?<br/><u>Signup</u>
+                        </div>
+                    </button>
+            </div>
+            </div>
+            </form>
+        </div>-->
+  </div>
+</div>
+
+        <div class="split right">
+            <div class="centered">
+                <button class="loginBtn loginBtn--facebook">
+                    Login with Facebook
+                </button>
+                <br>
+                <br>
+                <button class="loginBtn loginBtn--google">
+                    Login with Google
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+        <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+        <script src="js/index.js"></script>
+</body>
+</html>
