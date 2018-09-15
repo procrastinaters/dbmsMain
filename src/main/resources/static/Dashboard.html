@@ -6,13 +6,20 @@
 
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 			<title>Dashboard</title>
-	    <script type="text/javascript" src="Dashboard.js"></script>
+	    <!--<script type="text/javascript" src="Dashboard.js"></script>-->
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="Dashboard.css">
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <link rel="stylesheet" href="style2.css">
 
 	</head>
 
@@ -58,10 +65,145 @@
 
       <div class="NavigationRight">
         <div class="NavigationTab">
-          <button type="button" class="ButtonSignout">Sign Out</button>
+            <button class="btn btn-primary btn-lg" href="#signup" id="modalbtn" data-toggle="modal" data-target=".log-sign">Sign In/Register</button>
         </div>
       </div>
 
+    </div>
+    <!-- Modal -->
+    <div class="modal fade bs-modal-sm log-sign" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+                <div class="bs-example bs-example-tabs">
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li id="tab1" class=" active tab-style login-shadow "><a href="#signin" data-toggle="tab">Log In</a></li>
+                        <li id="tab2" class=" tab-style "><a href="#signup" data-toggle="tab">Sign Up</a></li>
+
+                    </ul>
+                </div>
+                <div class="modal-body">
+                    <div id="myTabContent" class="tab-content">
+
+                        <div class="tab-pane fade active in" id="signin">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <!-- Sign In Form -->
+                                    <!-- Text input-->
+
+                                    <div class="group">
+                                        <input required="" class="input" type="text" id="username"><span class="highlight"></span><span class="bar"></span>
+                                        <label class="label" for="date">Email address</label></div>
+
+
+                                    <!-- Password input-->
+                                    <div class="group">
+                                        <input required="" class="input" type="password" id="password"><span class="highlight"></span><span class="bar"></span>
+                                        <label class="label" for="date">Password</label>
+                                    </div>
+                                    <em>minimum 6 characters</em>
+
+                                    <div class="forgot-link">
+                                        <a href="#forgot" data-toggle="modal" data-target="#forgot-password"> I forgot my password</a>
+                                    </div>
+
+
+                                    <!-- Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="signin"></label>
+                                        <div class="controls">
+                                            <button id="signin" name="signin" class="btn btn-primary btn-block" type="button">Log In</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+
+
+                        <div class="tab-pane fade" id="signup">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <!-- Sign Up Form -->
+                                    <!-- Text input-->
+                                    <div class="group">
+                                        <input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+                                        <label class="label" for="date">First Name</label></div>
+
+                                    <!-- Text input-->
+                                    <div class="group">
+                                        <input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+                                        <label class="label" for="date">Last Name</label></div>
+
+                                    <!-- Password input-->
+                                    <div class="group">
+                                        <input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+                                        <label class="label" for="date">Email</label></div>
+
+                                    <!-- Text input-->
+                                    <div class="group">
+                                        <input required="" class="input" type="password"><span class="highlight"></span><span class="bar"></span>
+                                        <label class="label" for="date">Password</label></div>
+                                    <em>1-8 Characters</em>
+
+                                    <div class="group2">
+                                        <input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+                                        <label class="label" for="date">Country</label></div>
+
+
+
+                                    <!-- Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="confirmsignup"></label>
+                                        <div class="controls">
+                                            <button id="confirmsignup" name="confirmsignup" class="btn btn-primary btn-block">Sign Up</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="modal-footer">
+                <center>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </center>
+                </div>-->
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--modal2-->
+
+    <div class="modal fade bs-modal-sm" id="forgot-password" tabindex="0" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Password will be sent to your email</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <fieldset>
+                            <div class="group">
+                                <input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+                                <label class="label" for="date">Email address</label></div>
+
+
+                            <div class="control-group">
+                                <label class="control-label" for="forpassword"></label>
+                                <div class="controls">
+                                    <button id="forpasswodr" name="forpassword" class="btn btn-primary btn-block">Send</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <div class="content">

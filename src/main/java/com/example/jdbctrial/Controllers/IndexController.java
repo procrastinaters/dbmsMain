@@ -35,7 +35,7 @@ public class IndexController {
     //@GetMapping("/api")
 //    @MessageMapping("/hello")
 //    @SendTo("/topic/mssgs")
-    @Scheduled(fixedRate = 10000)
+    @Scheduled(fixedRate = 5000)
     public void api() throws SQLException, UnsupportedEncodingException {
 
         RestTemplate restTemplate=new RestTemplate();

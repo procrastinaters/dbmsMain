@@ -77,14 +77,14 @@ function connect() {
                 table.rows[1].cells[3].innerHTML=message[0].open;
             }
             flag=1;
-            console.clear();
+            // console.clear();
 
             // console.log(JSON.parse(message.body).content);
         });
     });
 }
 
-
+console.log(localStorage.getItem("user"));
 connect();
 // var socket=io();
 

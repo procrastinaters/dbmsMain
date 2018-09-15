@@ -47,7 +47,6 @@ public class UpdateStocks {
         for(int i=0;i<10;i++){
 
             executeSQL(i);
-            System.out.println(stock[i].getOpen());
 
         }
 

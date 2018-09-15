@@ -15,7 +15,6 @@ public class ReadAccount {
     public ResultSet read(Connection connection){
         Statement statement;
 
-        System.out.println("reading");
         try{
             statement = connection.createStatement();
             String sql="SELECT * FROM account";
