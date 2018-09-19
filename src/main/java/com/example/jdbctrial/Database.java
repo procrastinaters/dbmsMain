@@ -3,8 +3,10 @@ package com.example.jdbctrial;
 import com.example.jdbctrial.CreateTables.*;
 import com.example.jdbctrial.InformationObjects.Account;
 import com.example.jdbctrial.InformationObjects.Stock;
+import com.example.jdbctrial.InformationObjects.User;
 import com.example.jdbctrial.InsertIntoTables.InsertToAccount;
 import com.example.jdbctrial.InsertIntoTables.InsertToStocks;
+import com.example.jdbctrial.InsertIntoTables.InsertToUser;
 import com.example.jdbctrial.ReadTables.ReadAccount;
 import com.example.jdbctrial.ReadTables.ReadStocks;
 import com.example.jdbctrial.ReadTables.ReadUser;
@@ -57,10 +59,15 @@ public class Database{
 
         public void insertToAccount(Account account) throws SQLException{
 
-            System.out.println("insertToAccount");
             new InsertToAccount(myConn,account);
 
         }
+
+    public void insertToUser(User user) throws SQLException{
+
+        new InsertToUser(myConn,user);
+
+    }
 
     public ArrayList<Stock> readStocks(){
 

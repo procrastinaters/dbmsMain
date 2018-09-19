@@ -23,7 +23,7 @@ public class User {
     }
 
     public Integer getAge() {
-        return age;
+        return 0;
     }
 
     public String getSex() {
@@ -37,6 +37,8 @@ public class User {
     public java.sql.Date getDob() {
         return dob;
     }
+
+    public User(){}
 
     public User(String name,
                 String email,

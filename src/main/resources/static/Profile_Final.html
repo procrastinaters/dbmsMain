@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <script type="text/javascript" src="Dashboard.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+      <link rel="stylesheet" type="text/css" href="Dashboard.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="profilestyle.css">
+      <meta charset="utf-8">
+</head>
+
+<body>
+<div id="Navigation">
+
+      <div class="NavigationLeft">
+
+        <div class="NavigationTab">
+          <img src="img/StockHubIcon.jpg" alt="Logo" class="LogoImg">
+        </div>
+        <div class="Navhover">
+        <div class="NavigationTab">
+          <a href="Dashboard.html" class="NavigationTabLink">Home</a>
+        </div>
+    </div>
+
+       <div class="Navhover">
+        <div class="NavigationTab">
+          <a href="Dashboard.html" class="NavigationTabLink">News</a>
+        </div>
+    </div>
+
+       <div class="Navhover">
+        <div class="NavigationTab">
+          <a href="Dashboard.html" class="NavigationTabLink">Proflie</a>
+        </div>
+    </div>
+
+       <div class="Navhover">
+        <div class="NavigationTab">
+          <a href="Dashboard.html" class="NavigationTabLink">Stock Analysis</a>
+        </div>
+    </div>
+
+
+       <div class="Navhover">
+        <div class="NavigationTab">
+          <a href="Dashboard.html" class="NavigationTabLink">Trade</a>
+        </div>
+    </div>
+
+
+       <div class="Navhover">
+        <div class="NavigationTab">
+          <a href="Dashboard.html" class="NavigationTabLink">My Portfolio</a>
+        </div>
+    </div>
+
+       <div class="Navhover">
+        <div class="NavigationTab">
+          <a href="Dashboard.html" class="NavigationTabLink">About Us</a>
+        </div>
+    </div>
+
+   
+      </div>
+
+      <div class="NavigationRight">
+        <div class="NavigationTab">
+          <button type="button" class="ButtonSignout">Sign Out</button>
+        </div>
+      </div>
+
+    </div>
+<!--profile starts-->
+<!--<header>
+  <h3><bold>MY PROFILE</h3>
+  </header><br>-->
+
+
+<div class="container bootstrap snippet">
+  <div class="Profile">
+    
+    <div class="row">
+  		<div class="col-sm-3">
+      <div class="text-center">
+    
+        <img src="sasha.jpg" class="avatar img-circle img-thumbnail" alt="avatar"><br>
+        <h3>Sasha Pimento </h3><br>
+     
+        <div class="PictureButtons">
+       <button class="btn">UPLOAD NEW AVATAR</button><br><br>
+       <button class="btn">DELETE AVATAR</button><br>
+     </div>
+     </div>
+       </div>
+    	<div class="col-sm-9">
+      
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">
+                <hr>
+                  <form class="form" action="##" method="post" id="registrationForm">
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="first_name"><h4><bold><font color=#008CBA>FIRST NAME</font></bold></h4></label>
+                              <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any." >
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                            <label for="last_name"><h4><bold><font color=#008CBA >LAST NAME</font></bold></h4></label>
+                              <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any." id="lastName">
+                          </div>
+                      </div>
+                    </div>
+          
+                      
+                          
+                    
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                             <label for="mobile"><h4><bold><font color=#008CBA>MOBILE</font></bold></h4></label>
+                              <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                          </div>
+                      </div>
+                    
+
+                     
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4><bold><font color=#008CBA>EMAIL</font></bold></h4></label>
+                              <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email." readonly>
+                        <!--  </div>-->
+                      </div><br>
+                    </div>
+                  
+                    
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="dob"><h4><bold><font color=#008CBA>DATE OF BIRTH</font></bold></h4></label>
+                              <input type="date" class="form-control" placeholder="Your Date Of Birth" title="Enter your Date Of Birth" id="dob">
+                          </div>
+                      </div>
+
+                      
+
+							 <form>
+							    <div class="form-group col-xs-6">
+							      <label for="sex"><h4><bold><font color=#008CBA>SEX</font></bold></h4></label><br>
+							      <select class="form-control" id="sex">
+							        <option>Male</option>
+							        <option>Female</option>
+							     
+							      </select>
+							      <br>
+							  </form>
+                        </div>
+                      
+                     
+                      <div class="form-group">
+                           <div class="col-xs-12">
+                                <br>
+                              	<center><button class="btn btn-lg btn-success" type="button" id="save"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                               	<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button></center>
+                            </div>
+                      </div>
+              	</form>
+              
+              <hr>
+              
+             </div>
+           </div>
+
+
+      <footer class="flex-rw">
+        <section class="footer-social-section flex-rw">
+            <span class="footer-social-overlap footer-social-connect">
+            CONNECT <span class="footer-social-small">with</span> US
+          </span>
+          <span class="footer-social-overlap footer-social-icons-wrapper">
+          <a href="https://www.pinterest.com" class="generic-anchor" target="_blank" title="Pinterest" itemprop="significantLink"><i class="fa fa-pinterest fa-1x" style="font-size:2.5vw;"></i></a>
+          <a href="https://www.facebook.com" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fa fa-facebook" style="font-size:2.5vw;"></i></a>
+          <a href="https://twitter.com" class="generic-anchor" target="_blank" title="Twitter" itemprop="significantLink"><i class="fa fa-twitter" style="font-size:2.5vw;"></i></a>
+          <a href="http://instagram.com" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fa fa-instagram" style="font-size:2.5vw;"></i></a>
+          <a href="https://www.youtube.com" class="generic-anchor" target="_blank" title="Youtube" itemprop="significantLink"><i class="fa fa-youtube" style="font-size:2.5vw;"></i></a>
+          <a href="https://plus.google.com" class="generic-anchor" target="_blank" title="Google Plus" itemprop="significantLink"><i class="fa fa-google-plus" style="font-size:2.5vw;"></i></a>
+          </span>
+        </section>
+        <section class="footer-bottom-section">
+          <div class="footer-bottom-wrapper">
+            <i class="fa fa-copyright" role="copyright">
+            </i> 2018 StockHub <span class="footer-bottom-rights"> - All Rights Reserved - </span>
+          </div>
+        </section>
+      </footer>
+      <script src="/webjars/jquery/jquery.min.js"></script>
+      <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+      <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+      <script src="js/profile.js"   ></script>
+           </body>
+             </html>
