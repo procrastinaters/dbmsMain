@@ -23,7 +23,6 @@ public class CreateBoughtTable {
     }
 
     public CreateBoughtTable(Connection connection) throws SQLException {
-
         Statement statement=connection.createStatement();
         statement.executeUpdate(setSql());    }
 }

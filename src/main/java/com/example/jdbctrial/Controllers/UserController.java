@@ -31,20 +31,19 @@ public class UserController {
     @MessageMapping("/login")
     @SendToUser("/queue/reply")
     public Boolean login(String json) throws IOException, SQLException {
-        Account account=mapper.readValue(json,Account.class);
-        ResultSet resultSet=database.readAccount();
+        Account account = mapper.readValue(json, Account.class);
+        ResultSet resultSet = database.readAccount();
         try {
             resultSet.first();
-            do{
-                if(resultSet.getString("username").equals(account.getUsername())){
-                    if(resultSet.getString("password").equals(account.getPassword())) {
+            do {
+                if (resultSet.getString("Username").equals(account.getUsername())) {
+                    if (resultSet.getString("Password").equals(account.getPassword())) {
                         return true;
 //                        simpMessagingTemplate.convertAndSend("/user/{username}/reply",true);
                     }
                 }
-            }while (resultSet.next());
+            } while (resultSet.next());
             return false;
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -53,12 +52,27 @@ public class UserController {
 
 
     @MessageMapping("/signin")
-    @SendToUser("/queue/reply")
+    @SendToUser("/queue/register")
     public Boolean signin(String json) throws IOException, SQLException {
         ObjectMapper mapper = new ObjectMapper();
-        Account account=mapper.readValue(json,Account.class);
-        ResultSet resultSet=database.readAccount();
+        ResultSet resultSet = database.readAccount();
+        System.out.println("REQUEST");
+        Account account = mapper.readValue(json, Account.class);
+        resultSet.first();
+        try {
+            do {
+                if (resultSet.getString("Username").equals(account.getUsername()))
+                    return false;
+            } while (resultSet.next());
+        }catch(Exception e)
+        {
 
-        User user=mapper.readValue(json,User.class);
+        }
+        System.out.println("TRUWWEE");
+        database.insertToAccount(account);
+        System.out.println("DONEEEE");
+        return true;
+    }
+
 
 }

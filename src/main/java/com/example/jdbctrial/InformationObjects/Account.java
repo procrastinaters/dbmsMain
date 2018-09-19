@@ -8,18 +8,15 @@ public class Account {
     String username;
     Integer balance;
     String password;
-    String email;
 
     public Account(){}
 
     public Account(String username,
                    Integer balance,
-                   String password,
-                   String email) {
+                   String password) {
         this.username = username;
         this.balance = balance;
         this.password = password;
-        this.email=email;
     }
 
     public String getUsername() {
@@ -34,7 +31,4 @@ public class Account {
         return password;
     }
 
-    public String getEmail() {
-        return email;
-    }
 }

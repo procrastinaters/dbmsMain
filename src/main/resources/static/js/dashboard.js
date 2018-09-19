@@ -1,22 +1,26 @@
 var table = document.getElementById("Top10TableContentTable");
 flag=0;
+
+
+var selectedRow=0;
+
+
 var socket = new SockJS('/gs-guide-websocket');
 
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
-        // console.log('Connected: ' + frame);
-        stompClient.send("/app/hello", {}, JSON.stringify({'name': "connect"}));
         stompClient.subscribe('/topic/mssgs', connection1);
         stompClient.subscribe('/user/queue/reply', connection2);
+        stompClient.subscribe('/user/queue/register', connection3);
+        stompClient.send("/app/initial", {}, JSON.stringify({'name': "connect"}));
+
     });
 
 
     function connection1(message) {
            message=JSON.parse(message.body);
-            // if(!flag)
             for(i=0;i<10;i++)
             {
-
                 console.log("CLOSE"+message[i].close);
                 table.rows[i].cells[0].innerHTML=message[i].symbol;
                 table.rows[i].cells[1].innerHTML=message[i].latestPrice;
@@ -25,13 +29,22 @@ var socket = new SockJS('/gs-guide-websocket');
                 table.rows[i].cells[3].innerHTML=message[i].close;
                 table.rows[i].cells[4].innerHTML=message[i].previousClose;
                 table.rows[i].cells[5].innerHTML=message[i].changePercent;
-                // cell0.innerHTML=message[i].symbol;
-                // cell3.innerHTML=message[i].latestPrice;
-                // cell4.innerHTML=message[i].close;
+                table.rows[i].cells[6].innerHTML="<b  class=\"w3-button w3-black\">BUY</b>";
+                if(localStorage.getItem("user")!=null)
+                table.rows[i].cells[6].addEventListener("click",function (e) {
+                    document.getElementById('id01').style.display='block';
+                    selectedRow=e.target.closest('tr').rowIndex;
+                    document.getElementById("buystockid").value=table.rows[selectedRow].cells[0].innerHTML;
+                    document.getElementById("buyaccount").value=localStorage.getItem("user");
+                    document.getElementById('currvalue').value=table.rows[selectedRow].cells[2].innerHTML;
+                    document.getElementById("buyquantity").value=1;
+                    document.getElementById("buytotal").value=document.getElementById("buyquantity").value*document.getElementById('currvalue').value;
+                });
+                document.getElementById("buytotal").value=document.getElementById("buyquantity").value*document.getElementById('currvalue').value;
+                document.getElementById('currvalue').value=table.rows[selectedRow].cells[2].innerHTML;
+                if(localStorage.getItem("user")==null)
+                    table.rows[i].cells[6].innerHTML="BUY";
             }
-            // else{
-            // table.rows[1].cells[3].innerHTML=message[0].open;
-            // }$(window, document, undefined).ready(function() {
     }
 
 function connection2(message) {
@@ -39,14 +52,10 @@ function connection2(message) {
     message=JSON.parse(message.body);
     if(message==false)
     {
-        // mssg= document.getElementById("mssg");
-        // mssg.style.color="red";
-        // mssg.innerHTML="Invalid Username or password";
+
+
     }
     else{
-        // mssg= document.getElementById("mssg")
-        // mssg.style.color="green";
-        // mssg.innerHTML="Login Successful!";
         document.location.href="/try.html";
     }
     console.log("message111"+message);
@@ -55,6 +64,18 @@ function connection2(message) {
     console.log(JSON.parse(message.body).content);
 }
 
+function connection3(message) {
+
+    message=JSON.parse(message.body);
+    if(message==false)
+    {
+
+    }
+    else{
+        document.location.href="/Dashboard.html";
+    }
+
+}
 $(window, document, undefined).ready(function() {
 
     $('.input').blur(function() {
@@ -80,12 +101,35 @@ $('#tab2').on('click' , function() {
 var bttn=(document.getElementById("signin"));
 
 bttn.addEventListener("click",function () {
-    // var form=document.getElementsByTagName("form");
     var username=document.getElementById("username");
     var password=document.getElementById("password");
     localStorage.setItem("user",username.value);
 
     console.log("CLICK");
-    stompClient.send("/app/login", {}, JSON.stringify({'username': username.value,'balance':1000,'password':password.value,'email':"aniket.mp"}));
+    stompClient.send("/app/login", {}, JSON.stringify({'username': username.value,'balance':1000,'password':password.value}));
 
+});
+
+
+var bttn2=document.getElementById("confirmsignup");
+
+bttn2.addEventListener("click",function () {
+    var name=document.getElementById("name");
+    var password=document.getElementById("setpassword");
+    var email=document.getElementById("email");
+    stompClient.send("/app/signin", {}, JSON.stringify({'username': email.value,'password':password.value,'balance':0}));
+});
+
+    table.rows[1].cells[6].addEventListener("click",function () {
+
+       var value=document.getElementById("currvalue");
+       value.innerHTML="IT WORKS";
+    });
+document.getElementById("purchase").addEventListener("click",function (ev) {
+
+    stompClient.send("/app/buy", {}, JSON.stringify({"username":localStorage.getItem("user"),
+        "stock":document.getElementById("buystockid").value,
+        "quantity":document.getElementById("buyquantity").value,
+        "pricePerShare":document.getElementById("currvalue").value,
+        "price":document.getElementById("buytotal").value}));
 });

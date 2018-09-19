@@ -1,10 +1,13 @@
 package com.example.jdbctrial;
 
 import com.example.jdbctrial.CreateTables.*;
+import com.example.jdbctrial.InformationObjects.Account;
 import com.example.jdbctrial.InformationObjects.Stock;
+import com.example.jdbctrial.InsertIntoTables.InsertToAccount;
 import com.example.jdbctrial.InsertIntoTables.InsertToStocks;
 import com.example.jdbctrial.ReadTables.ReadAccount;
 import com.example.jdbctrial.ReadTables.ReadStocks;
+import com.example.jdbctrial.ReadTables.ReadUser;
 import com.example.jdbctrial.UpdateTables.UpdateStocks;
 import org.springframework.stereotype.Component;
 
@@ -26,7 +29,7 @@ public class Database{
 
     public Database() throws SQLException {
         try{
-            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useSSL=false", "student", "student");
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/stockhub?useSSL=false", "student", "student");
         }catch (Exception exc) {
             exc.printStackTrace();
         }
@@ -51,6 +54,13 @@ public class Database{
 //            System.out.println(stock[i].getOpen());
         }
 
+
+        public void insertToAccount(Account account) throws SQLException{
+
+            System.out.println("insertToAccount");
+            new InsertToAccount(myConn,account);
+
+        }
 
     public ArrayList<Stock> readStocks(){
 
@@ -83,6 +93,11 @@ public class Database{
     }
 
 
+    public ResultSet readUser(){
+
+        ReadUser readUser =new ReadUser();
+        return readUser.read(myConn);
+    }
     public void updateStocks(Stock[] stocks){
 
         new UpdateStocks(myConn,stocks);

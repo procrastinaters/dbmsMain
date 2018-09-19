@@ -11,11 +11,9 @@ public class CreateAccountTable {
         String sql;
         sql="CREATE TABLE IF NOT EXISTS account(" +
                 "Username varchar(30) NOT NULL," +
-                "Email varchar(30) DEFAULT NULL," +
                 "Password varchar(15) NOT NULL," +
                 "Balance float NOT NULL," +
-                "PRIMARY KEY (Username)," +
-                "FOREIGN KEY (Email) REFERENCES user(email)" +
+                "PRIMARY KEY (Username)" +
                 ")";
         return sql;
     }
