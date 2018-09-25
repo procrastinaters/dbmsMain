@@ -9,15 +9,13 @@ public class CreateBoughtTable {
     private String setSql(){
         String sql;
         sql="CREATE TABLE IF NOT EXISTS boughtstocks (" +
-                "TransId bigint(20) DEFAULT NULL," +
-                "RealisedProfitLoss float NOT NULL," +
-                "RealisedProfitLossPer float NOT NULL," +
-                "UnrealisedProfitLoss float NOT NULL," +
-                "UnrealisedProfitLossPer float NOT NULL," +
+                "TransId INTEGER PRIMARY KEY AUTO_INCREMENT," +
                 "CostPrice float NOT NULL," +
-                "AvgCostPrice float NOT NULL," +
-                "KEY TransId (TransId)," +
-                "FOREIGN KEY(TransId) REFERENCES transactionhistory(transid)" +
+                "TotalPrice float NOT NULL," +
+                "Username text NOT NULL," +
+                "StockId text NOT NULL," +
+                "Quantity INTEGER NOT NULL,"+
+                "QuantitySold INTEGER NOT NULL"+
                 ")";
         return sql;
     }

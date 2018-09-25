@@ -4,16 +4,16 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class ReadUser {
-
+public class ReadBoughtStocks {
     private ResultSet resultSet;
 
-    public ResultSet read(Connection connection){
+    public ResultSet read(Connection connection, String username){
         Statement statement;
 
         try{
             statement = connection.createStatement();
-            String sql="SELECT * FROM user";
+            System.out.println(username);
+            String sql="SELECT * FROM boughtstocks WHERE Username='" + username +"'";
             resultSet=statement.executeQuery(sql);
         }catch (Exception exc){
             exc.printStackTrace();

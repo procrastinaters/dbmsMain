@@ -1,13 +1,10 @@
 package com.example.jdbctrial;
 
 import com.example.jdbctrial.CreateTables.*;
-import com.example.jdbctrial.InformationObjects.Account;
-import com.example.jdbctrial.InformationObjects.Stock;
-import com.example.jdbctrial.InformationObjects.User;
-import com.example.jdbctrial.InsertIntoTables.InsertToAccount;
-import com.example.jdbctrial.InsertIntoTables.InsertToStocks;
-import com.example.jdbctrial.InsertIntoTables.InsertToUser;
+import com.example.jdbctrial.InformationObjects.*;
+import com.example.jdbctrial.InsertIntoTables.*;
 import com.example.jdbctrial.ReadTables.ReadAccount;
+import com.example.jdbctrial.ReadTables.ReadBoughtStocks;
 import com.example.jdbctrial.ReadTables.ReadStocks;
 import com.example.jdbctrial.ReadTables.ReadUser;
 import com.example.jdbctrial.UpdateTables.UpdateStocks;
@@ -31,7 +28,7 @@ public class Database{
 
     public Database() throws SQLException {
         try{
-            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/stockhub?useSSL=false", "student", "student");
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/stockhub?useSSL=false", "root", "password");
         }catch (Exception exc) {
             exc.printStackTrace();
         }
@@ -62,6 +59,20 @@ public class Database{
             new InsertToAccount(myConn,account);
 
         }
+
+    public void insertToBoughtTable(BoughtStocks boughtStocks) throws SQLException{
+
+        new InsertToBought(myConn,boughtStocks);
+
+    }
+
+
+    public void insertToSoldTable(SoldStocks soldStocks) throws SQLException{
+
+        new InsertToSold(myConn,soldStocks);
+
+    }
+
 
     public void insertToUser(User user) throws SQLException{
 
@@ -99,6 +110,11 @@ public class Database{
         return readAccount.read(myConn);
     }
 
+    public ResultSet readBoughtStocks(String username){
+
+        ReadBoughtStocks readBoughtStocks =new ReadBoughtStocks();
+        return readBoughtStocks.read(myConn,username);
+    }
 
     public ResultSet readUser(){
 

@@ -2,6 +2,7 @@ package com.example.jdbctrial.Controllers;
 
 import com.example.jdbctrial.Database;
 import com.example.jdbctrial.InformationObjects.BoughtStocks;
+import com.example.jdbctrial.InformationObjects.SoldStocks;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -24,6 +25,19 @@ public class TransactionController {
     public Boolean buy(String json) throws IOException, SQLException {
         BoughtStocks boughtStocks = mapper.readValue(json, BoughtStocks.class);
         System.out.println(boughtStocks.getStock());
+
+        database.insertToBoughtTable(boughtStocks);
+
+        return true;
+    }
+    @MessageMapping("/sell")
+    @SendToUser("/queue/reply")
+    public Boolean sell(String json) throws IOException, SQLException {
+
+        SoldStocks soldStocks = mapper.readValue(json, SoldStocks.class);
+        System.out.println(soldStocks.getSymbol());
+        database.insertToSoldTable(soldStocks);
+
         return true;
     }
 }

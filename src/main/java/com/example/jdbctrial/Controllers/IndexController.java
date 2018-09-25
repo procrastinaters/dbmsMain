@@ -38,7 +38,7 @@ public class IndexController {
     //@GetMapping("/api")
 //    @MessageMapping("/hello")
 //    @SendTo("/topic/mssgs")
-    @Scheduled(fixedRate = 3000)
+    @Scheduled(fixedRate = 5000)
     public void api() throws SQLException, UnsupportedEncodingException {
 
         getData();

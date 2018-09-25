@@ -9,7 +9,7 @@ public class CreateSoldTable {
     private String setSql(){
         String sql;
         sql="CREATE TABLE IF NOT EXISTS soldstocks (" +
-                "TransId bigint(20) DEFAULT NULL," +
+                "TransId varchar(20) DEFAULT NULL," +
                 "RealisedProfitLoss float NOT NULL," +
                 "RealisedProfitLossPer float NOT NULL," +
                 "SellPrice float NOT NULL," +

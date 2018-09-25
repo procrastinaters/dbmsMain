@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
+  <link rel="stylesheet" href="bought.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
+  <title></title>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <table class="table table-hover table-responsive" id="bought_table">
+        <thead>
+            <tr>
+                <th>Stock ID</th>
+                <th>Cost Price</th>
+                <th>Quantity</th>
+                <th>MP</th>
+                <th>Realised Profit/Loss</th>
+                <th>Realised Profit/Loss%</th>
+                <th>Unrealised Profit/Loss</th>
+                <th>Unrealised Profit/Loss%</th>
+                <th>Sell</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+  </div>
+</div>
+
+<div id="sell" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title">Sell Stock</h4>
+      </div>
+      <div class="modal-body">
+        
+    <div class="w3-bar w3-border-bottom">
+      <button class="tablink w3-bar-item  w3-button" onclick="openCity(event, 'Buy')">Buy</button>
+      <button class="tablink w3-bar-item w3-light-grey w3-button" onclick="openCity(event, 'Sell')">Sell</button>
+    </div>
+
+    <div id="Buy" class="w3-container city"  style="display: none">
+      <form class="form" method="post" id="registrationForm">
+        
+        <div class="form-group">                  
+          <div class="col-xs-6">
+            <label for="account"><h4>Account</h4></label>
+            <input type="text" class="form-control" name="account" id="account" placeholder="Account" title="enter your account number." required>
+          </div>
+        </div>
+        
+        <div class="form-group">  
+          <div class="col-xs-6">
+            <label for="stockid"><h4>Stock ID</h4></label>
+            <input type="text" class="form-control" name="stockid" id="stockid" placeholder="Stock ID">
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <div class="col-xs-6">
+            <label for="value"><h4>Current value of stock</h4></label>
+            <input type="text" class="form-control" name="value" id="value" placeholder="Current value of stock" readonly>
+          </div>
+        </div>
+  
+  
+              <div class="form-group">
+                  <div class="col-xs-6">
+                     <label for="quantity"><h4>Quantity</h4></label>
+                      <input type="number" class="form-control" name="quantity" id="quantity" placeholder="Quantity of stocks you want to purchase" min="0" step="1">
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  
+                  <div class="col-xs-6">
+                      <label for="ordertype"><h4>Order type</h4></label>
+                      <div >
+                    <input type="radio" name="rb1" value="market"> Market
+                    &nbsp;&nbsp;&nbsp;
+        <input type="radio" name="rb1" value="limit"> Limit
+        </div>
+                  </div>
+              </div>
+
+
+
+
+              <div class="form-group">
+                  
+                  <div class="col-xs-6">
+                      <label for="limit"><h4>Limit</h4></label>
+                      <input type="text" class="form-control" id="stock" placeholder="Limit of stock">
+                  </div>
+              </div>
+
+               <div class="form-group">
+                  
+                  <div class="col-xs-6">
+                      <label for="total"><h4>Total payable amount</h4></label>
+                      <input type="text" class="form-control" id="total" placeholder="Total amount to pay" readonly>
+                  </div>
+              </div>
+             
+              <div class="form-group">
+                   <div class="col-xs-12">
+                        <br>
+                        <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-euro"></i>Purchase stock</button>
+                        <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                    </div>
+              </div>
+        </form>
+  </div>
+
+  <div id="Sell" class="w3-container city">
+        <form class="form" action="##" method="post" id="registrationForm">
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="account"><h4>Account</h4></label>
+                              <input type="text" class="form-control" name="account" id="sell_account" placeholder="Account" title="enter your account number." required>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                            <label for="stockid"><h4>Stock ID</h4></label>
+                              <input type="text" class="form-control" name="stockid" id="sell_stockid" placeholder="Stock ID">
+                          </div>
+                      </div>
+          
+                <div class="form-group">
+                         <div class="col-xs-6">
+                              <label for="value"><h4>Current value of stock</h4></label>
+                              <input type="text" class="form-control" name="value" id="sell_value" placeholder="Current value of stock" readonly>
+                          </div>
+                      </div>
+                      
+                      <div class="form-group">
+                         <div class="col-xs-6">
+                              <label for="sell_prevvalue"><h4>Value of stock when purchased</h4></label>
+                              <input type="text" class="form-control" name="prevvalue" id="sell_prevvalue" placeholder="Value of stock when purchased" readonly>
+                          </div>
+                      </div>   
+                       
+          
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                             <label for="quantity"><h4>Quantity</h4></label>
+                              <input type="number" class="form-control" name="quantity" id="sell_quantity" placeholder="Quantity of stocks you want to sell" min="0" step="1">
+                          </div>
+                      </div>
+
+
+
+                       <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="total"><h4>Total amount</h4></label>
+                              <input type="text" class="form-control" id="sell_total" placeholder="Total amount you will receive" readonly>
+                          </div>
+                      </div>
+
+                        <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="total"><h4>Profit/Loss</h4></label>
+                              <input type="text" class="form-control" id="gain" placeholder="Profit/Loss" readonly>
+                          </div>
+                      </div>
+                     
+                      <div class="form-group">
+                           <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success" type="button" id="sell_submit"><i class="glyphicon glyphicon-euro"></i>Sell stock</button>
+                                <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                            </div>
+                      </div>
+                </form>
+
+  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+<script type="text/javascript" src="bought.js"></script>
+</body>
+</html>
+
