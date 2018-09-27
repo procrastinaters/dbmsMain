@@ -1,6 +1,5 @@
 var table = document.getElementById("Top10TableContentTable");
 var ticker_table = document.getElementById("TickersScrollable");
-
 flag=0;
 
 
@@ -21,32 +20,8 @@ var socket = new SockJS('/gs-guide-websocket');
 
     function connection1(message) {
            message=JSON.parse(message.body);
-            for(i=0;i<10;i++)
-            {
-                console.log("CLOSE"+message[i].close);
-                table.rows[i+1].cells[0].innerHTML=message[i].symbol;
-                table.rows[i+1].cells[1].innerHTML=message[i].latestPrice;
-                table.color="red";
-                table.rows[i+1].cells[2].innerHTML=message[i].open;
-                table.rows[i+1].cells[3].innerHTML=message[i].close;
-                table.rows[i+1].cells[4].innerHTML=message[i].previousClose;
-                table.rows[i+1].cells[5].innerHTML=message[i].changePercent;
-                table.rows[i+1].cells[6].innerHTML="<b  class=\"w3-button \" style='background-color: #50C878;color:white;border-radius: 5px;box-shadow: 2px 3px 2px #111;'>BUY</b>";
-                if(localStorage.getItem("user")!=null)
-                table.rows[i+1].cells[6].addEventListener("click",function (e) {
-                    document.getElementById('id01').style.display='block';
-                    selectedRow=e.target.closest('tr').rowIndex;
-                    document.getElementById("buystockid").value=table.rows[selectedRow].cells[0].innerHTML;
-                    document.getElementById("buyaccount").value=localStorage.getItem("user");
-                    document.getElementById('currvalue').value=table.rows[selectedRow].cells[2].innerHTML;
-                    document.getElementById("buyquantity").value=1;
-                    document.getElementById("buytotal").value=document.getElementById("buyquantity").value*document.getElementById('currvalue').value;
-                });
-                document.getElementById("buytotal").value=document.getElementById("buyquantity").value*document.getElementById('currvalue').value;
-                document.getElementById('currvalue').value=table.rows[selectedRow].cells[2].innerHTML;
-                if(localStorage.getItem("user")==null)
-                    table.rows[i].cells[6].innerHTML="BUY";
-            }
+        var k=0;
+           //Scrolling-tickers
 
         function change(open,prev) {
             var diff = open - prev;
@@ -62,7 +37,7 @@ var socket = new SockJS('/gs-guide-websocket');
         //
         // }
 
-        var k=0;
+
         for(j=0;j<2;j++)
         {
             // color(change( message[k].open , message[k].previousClose ));
@@ -78,6 +53,33 @@ var socket = new SockJS('/gs-guide-websocket');
         }
 
 
+
+            for(i=0;i<10;i++)
+            {
+                console.log("CLOSE"+message[i].close);
+                table.rows[i].cells[0].innerHTML=message[i].symbol;
+                table.rows[i].cells[1].innerHTML=message[i].latestPrice;
+                table.color="red";
+                table.rows[i].cells[2].innerHTML=message[i].open;
+                table.rows[i].cells[3].innerHTML=message[i].close;
+                table.rows[i].cells[4].innerHTML=message[i].previousClose;
+                table.rows[i].cells[5].innerHTML=message[i].changePercent;
+                table.rows[i].cells[6].innerHTML="<b  class=\"w3-button w3-black\">BUY</b>";
+                if(localStorage.getItem("user")!=null)
+                table.rows[i].cells[6].addEventListener("click",function (e) {
+                    document.getElementById('id01').style.display='block';
+                    selectedRow=e.target.closest('tr').rowIndex;
+                    document.getElementById("buystockid").value=table.rows[selectedRow].cells[0].innerHTML;
+                    document.getElementById("buyaccount").value=localStorage.getItem("user");
+                    document.getElementById('currvalue').value=table.rows[selectedRow].cells[2].innerHTML;
+                    document.getElementById("buyquantity").value=1;
+                    document.getElementById("buytotal").value=document.getElementById("buyquantity").value*document.getElementById('currvalue').value;
+                });
+                document.getElementById("buytotal").value=document.getElementById("buyquantity").value*document.getElementById('currvalue').value;
+                document.getElementById('currvalue').value=table.rows[selectedRow].cells[2].innerHTML;
+                if(localStorage.getItem("user")==null)
+                    table.rows[i].cells[6].innerHTML="BUY";
+            }
     }
 
 function connection2(message) {
@@ -89,7 +91,7 @@ function connection2(message) {
 
     }
     else{
-        document.location.href="/";
+        document.location.href="/try.html";
     }
     console.log("message111"+message);
     console.log("message"+(JSON.parse(message.body)));
@@ -105,7 +107,7 @@ function connection3(message) {
 
     }
     else{
-        document.location.href="/";
+        document.location.href="/Dashboard.html";
     }
 
 }
@@ -166,16 +168,3 @@ document.getElementById("purchase").addEventListener("click",function (ev) {
         "pricePerShare":document.getElementById("currvalue").value,
         "price":document.getElementById("buytotal").value}));
 });
-var signbtn=document.getElementById("sign");
-if(localStorage.getItem("user")==null){
-    signbtn.innerHTML="Sign In";
-}
-else{
-    signbtn.innerHTML="Sign Out";
-    signbtn.addEventListener("click",function (ev) {
-
-       localStorage.clear();
-        document.location.href="/";
-
-    });
-}

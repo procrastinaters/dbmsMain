@@ -1,0 +1,60 @@
+table{
+    font-family:'Calibri';
+    font-size:15px;
+    margin-top: 10vh;
+    background-color:#fff;
+    color:#333;
+}
+.modal-header{
+    background-color:#333;
+    color:#fff;
+}
+
+#a{
+    min-height: 70.1vh;
+
+}
+
+#bought_table{
+    margin-top: 3vh;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.1vw;
+    margin-left: -25%;
+    background-color: #fff;
+    box-shadow: 5px 5px 5px #111;
+
+}
+#table-head {
+    font-size: 1.1vw;
+    background-color: #343434;
+    color: white;
+    box-shadow: 0 3px 3px #111;
+}
+
+/*.details{*/
+    /*background-color: #5B7BD5;*/
+    /*height: 30vh;*/
+    /*width: 30vw;*/
+/*}*/
+
+.row{
+    display: flex;
+
+}
+
+#id01{
+margin-top: 10vh;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#modal-head{
+    color:white;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #292c2f;
+
+}
+
+#Sell{
+
+    height: 50vh;
+}

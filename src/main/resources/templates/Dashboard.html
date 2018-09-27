@@ -6,7 +6,7 @@
 
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 			<title>Dashboard</title>
-	    <!--<script type="text/javascript" src="Dashboard.js"></script>-->
+
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,7 +19,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-        <link rel="stylesheet" href="style2.css">
+        <link rel="stylesheet" href="../static/style2.css">
 
 	</head>
 
@@ -27,67 +27,49 @@
 
     <div id="Navigation">
 
-        <div class="NavigationLeft">
+      <div class="NavigationLeft">
 
-            <div class="NavigationTab">
-                <img src="img/StockHubIcon.jpg" alt="Logo" class="LogoImg">
-            </div>
-            <div class="Navhover">
-                <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">Home</a>
-                </div>
-            </div>
-
-            <div class="Navhover">
-                <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">News</a>
-                </div>
-            </div>
-
-            <div class="Navhover">
-                <div class="NavigationTab">
-                    <a href="Profile_Final.html" class="NavigationTabLink">Profile</a>
-                </div>
-            </div>
-
-            <div class="Navhover">
-                <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">Stock Analysis</a>
-                </div>
-            </div>
-
-
-            <div class="Navhover">
-                <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">Trade</a>
-                </div>
-            </div>
-
-
-            <div class="Navhover">
-                <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">My Portfolio</a>
-                </div>
-            </div>
-
-            <div class="Navhover">
-                <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">About Us</a>
-                </div>
-            </div>
-
-
+        <div class="NavigationTab">
+          <img src="../static/img/StockHubIcon.jpg" alt="Logo" class="LogoImg">
         </div>
 
-        <div class="NavigationRight">
-            <div class="NavigationTab">
-                <button type="button" class="ButtonSignout">Sign Out</button>
-            </div>
+        <div class="NavigationTab">
+          <a href="Dashboard.html" class="NavigationTabLink">Home</a>
         </div>
+
+        <div class="NavigationTab">
+          <a href="Dashboard.html" class="NavigationTabLink">News</a>
+        </div>
+
+        <div class="NavigationTab">
+          <a href="../static/Profile_Final.html" class="NavigationTabLink">Proflie</a>
+        </div>
+
+        <div class="NavigationTab">
+          <a href="Graph.html" class="NavigationTabLink">Stock Analysis</a>
+        </div>
+
+        <div class="NavigationTab">
+          <a href="Dashboard.html" class="NavigationTabLink">Trade</a>
+        </div>
+
+        <div class="NavigationTab">
+          <a href="Dashboard.html" class="NavigationTabLink">My Portfolio</a>
+        </div>
+
+        <div class="NavigationTab">
+          <a href="Dashboard.html" class="NavigationTabLink">About Us</a>
+        </div>
+
+      </div>
+
+      <div class="NavigationRight">
+        <div class="NavigationTab">
+            <button class="btn btn-primary btn-lg" href="#signup" id="modalbtn" data-toggle="modal" data-target=".log-sign">Sign In/Register</button>
+        </div>
+      </div>
 
     </div>
-
-
     <!-- Modal -->
     <div class="modal fade bs-modal-sm log-sign" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
@@ -260,37 +242,38 @@
 
       </div>
 
-        <div class="VerticalCarousel">
+      <div class="VerticalCarousel">
 
-            <div class="Scrollable">
+				<div class="Scrollable">
 
-                <div id="Items">
+			    <div id="Items">
 
-                    <script type="text/javascript">
+						<script type="text/javascript">
 
-                        var table = document.createElement('table'), tr, td, row, cell;
-                        table.setAttribute('id', 'TickersScrollable');
-                        for (row = 0; row < 2; row++)
-                        {
-                            tr = document.createElement('tr');
-                            for (cell = 0; cell < 5; cell++)
-                            {
-                                td = document.createElement('td');
-                                td.setAttribute('id', 'TickerBlock');
-                                tr.appendChild(td);
-                                td.innerHTML = row;
-                            }
-                            table.appendChild(tr);
-                        }
-                        document.getElementById('Items').appendChild(table);
+							var table = document.createElement('table'), tr, td, row, cell;
+                            table.setAttribute('id', 'TickersScrollable');
+							for (row = 0; row < 2; row++)
+							{
+								tr = document.createElement('tr');
+								for (cell = 0; cell < 5; cell++)
+								{
+										td = document.createElement('td');
+										td.setAttribute('id', 'TickerBlock');
+										tr.appendChild(td);
+										td.innerHTML = row;
+								}
+								table.appendChild(tr);
+							}
+							document.getElementById('Items').appendChild(table);
 
-                    </script>
+						</script>
 
-                </div>
+					</div>
 
-            </div>
+				</div>
 
-        </div>
+			</div>
+
 
       <div class="TableSection">
 
@@ -330,7 +313,7 @@
 											td = document.createElement('td');
 											td.setAttribute('class', 'LabelsBlock');
 											tr.appendChild(td);
-											td.innerHTML = "PREVIOUS CLOSE";
+											td.innerHTML = "PREV CLOSE";
 
 											td = document.createElement('td');
 											td.setAttribute('class', 'LabelsBlock');
@@ -388,14 +371,16 @@
             <!--<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Buy/Sell</button>-->
 
             <div id="id01" class="w3-modal">
-                <div class="w3-modal-content w3-card-4 w3-animate-zoom"  style="width:50vw; height:50vh;">
+                <div class="w3-modal-content w3-card-4 w3-animate-zoom">
                     <header class="w3-container w3-blue">
       <span onclick="document.getElementById('id01').style.display='none'"
             class="w3-button w3-blue w3-xlarge w3-display-topright">&times;</span>
                         <h2>Transaction</h2>
                     </header>
+
                     <div class="w3-bar w3-border-bottom">
                         <button class="tablink w3-bar-item w3-light-grey w3-button" onclick="openCity(event, 'Buy')">Buy</button>
+                        <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Sell')">Sell</button>
                     </div>
 
                     <div id="Buy" class="w3-container city">
@@ -430,28 +415,28 @@
                                 </div>
                             </div>
 
-                            <!--<div class="form-group">-->
+                            <div class="form-group">
 
-                                <!--<div class="col-xs-6">-->
-                                    <!--<label for="ordertype"><h4>Order type</h4></label>-->
-                                    <!--<div >-->
-                                        <!--<input type="radio" name="rb1" value="market"> Market-->
-                                        <!--&nbsp;&nbsp;&nbsp;-->
-                                        <!--<input type="radio" name="rb1" value="limit"> Limit-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-
-
+                                <div class="col-xs-6">
+                                    <label for="ordertype"><h4>Order type</h4></label>
+                                    <div >
+                                        <input type="radio" name="rb1" value="market"> Market
+                                        &nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="rb1" value="limit"> Limit
+                                    </div>
+                                </div>
+                            </div>
 
 
-                            <!--<div class="form-group">-->
 
-                                <!--<div class="col-xs-6">-->
-                                    <!--<label for="limit"><h4>Limit</h4></label>-->
-                                    <!--<input type="text" class="form-control" id="stock" placeholder="Limit of stock">-->
-                                <!--</div>-->
-                            <!--</div>-->
+
+                            <div class="form-group">
+
+                                <div class="col-xs-6">
+                                    <label for="limit"><h4>Limit</h4></label>
+                                    <input type="text" class="form-control" id="stock" placeholder="Limit of stock">
+                                </div>
+                            </div>
 
                             <div class="form-group">
 
@@ -471,73 +456,73 @@
                         </form>
                     </div>
 
-                    <!--<div id="Sell" class="w3-container city" style="display: none">-->
-                        <!--<form class="form" id="registrationForm">-->
-                            <!--<div class="form-group">-->
+                    <div id="Sell" class="w3-container city" style="display: none">
+                        <form class="form" id="registrationForm">
+                            <div class="form-group">
 
-                                <!--<div class="col-xs-6">-->
-                                    <!--<label for="account"><h4>Account</h4></label>-->
-                                    <!--<input type="text" class="form-control" name="account" id="account" placeholder="Account" title="enter your account number." required>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--<div class="form-group">-->
+                                <div class="col-xs-6">
+                                    <label for="account"><h4>Account</h4></label>
+                                    <input type="text" class="form-control" name="account" id="account" placeholder="Account" title="enter your account number." required>
+                                </div>
+                            </div>
+                            <div class="form-group">
 
-                                <!--<div class="col-xs-6">-->
-                                    <!--<label for="stockid"><h4>Stock ID</h4></label>-->
-                                    <!--<input type="text" class="form-control" name="stockid" id="stockid" placeholder="Stock ID">-->
-                                <!--</div>-->
-                            <!--</div>-->
+                                <div class="col-xs-6">
+                                    <label for="stockid"><h4>Stock ID</h4></label>
+                                    <input type="text" class="form-control" name="stockid" id="stockid" placeholder="Stock ID">
+                                </div>
+                            </div>
 
-                            <!--<div class="form-group">-->
-                                <!--<div class="col-xs-6">-->
-                                    <!--<label for="value"><h4>Current value of stock</h4></label>-->
-                                    <!--<input type="text" class="form-control" name="value" id="value" placeholder="Current value of stock" readonly>-->
-                                <!--</div>-->
-                            <!--</div>-->
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="value"><h4>Current value of stock</h4></label>
+                                    <input type="text" class="form-control" name="value" id="value" placeholder="Current value of stock" readonly>
+                                </div>
+                            </div>
 
-                            <!--<div class="form-group">-->
-                                <!--<div class="col-xs-6">-->
-                                    <!--<label for="prevvalue"><h4>Value of stock when purchased</h4></label>-->
-                                    <!--<input type="text" class="form-control" name="prevvalue" id="prevvalue" placeholder="Value of stock when purchased" readonly>-->
-                                <!--</div>-->
-                            <!--</div>-->
-
-
-                            <!--<div class="form-group">-->
-                                <!--<div class="col-xs-6">-->
-                                    <!--<label for="quantity"><h4>Quantity</h4></label>-->
-                                    <!--<input type="number" class="form-control" name="quantity" id="quantity" placeholder="Quantity of stocks you want to sell" min="0" step="1">-->
-                                <!--</div>-->
-                            <!--</div>-->
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="prevvalue"><h4>Value of stock when purchased</h4></label>
+                                    <input type="text" class="form-control" name="prevvalue" id="prevvalue" placeholder="Value of stock when purchased" readonly>
+                                </div>
+                            </div>
 
 
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="quantity"><h4>Quantity</h4></label>
+                                    <input type="number" class="form-control" name="quantity" id="quantity" placeholder="Quantity of stocks you want to sell" min="0" step="1">
+                                </div>
+                            </div>
 
-                            <!--<div class="form-group">-->
 
-                                <!--<div class="col-xs-6">-->
-                                    <!--<label for="total"><h4>Total amount</h4></label>-->
-                                    <!--<input type="text" class="form-control" id="total" placeholder="Total amount you will receive" readonly>-->
-                                <!--</div>-->
-                            <!--</div>-->
 
-                            <!--<div class="form-group">-->
+                            <div class="form-group">
 
-                                <!--<div class="col-xs-6">-->
-                                    <!--<label for="total"><h4>Profit/Loss</h4></label>-->
-                                    <!--<input type="text" class="form-control" id="gain" placeholder="Profit/Loss" readonly>-->
-                                <!--</div>-->
-                            <!--</div>-->
+                                <div class="col-xs-6">
+                                    <label for="total"><h4>Total amount</h4></label>
+                                    <input type="text" class="form-control" id="total" placeholder="Total amount you will receive" readonly>
+                                </div>
+                            </div>
 
-                            <!--<div class="form-group">-->
-                                <!--<div class="col-xs-12">-->
-                                    <!--<br>-->
-                                    <!--<button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-euro"></i>Sell stock</button>-->
-                                    <!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</form>-->
+                            <div class="form-group">
 
-                    <!--</div>-->
+                                <div class="col-xs-6">
+                                    <label for="total"><h4>Profit/Loss</h4></label>
+                                    <input type="text" class="form-control" id="gain" placeholder="Profit/Loss" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <br>
+                                    <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-euro"></i>Sell stock</button>
+                                    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
 
                     <div class="w3-container w3-light-grey w3-padding">
                         <button class="w3-button w3-right w3-white w3-border"
@@ -575,7 +560,7 @@
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="dashboard.js"></script>
 
 	</body>
 

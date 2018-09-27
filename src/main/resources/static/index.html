@@ -1,121 +1,560 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Stock Hub</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-    <link rel="icon"
-          type="image/png"
-          href="http://example.com/myicon.png">
+    <meta charset="UTF-8">
+    <title>StockHub</title>
+    <link rel="stylesheet" type="text/css" href="template.css">
+    <link rel="stylesheet" type="text/css" href="dashboard.css">
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
 </head>
 <body>
+<div id="a">
+    <div id="Navigation">
 
-        <img src="#" style="height: 10vh;width: 3vh;">
+        <div class="NavigationLeft">
 
-    <center>
-        <header class="w3-container" style="margin-top: 10vh">
-            <h1>Log In</h1><br>
-            <h4>New to Stockhub?&nbsp;
-            <a href="signup.html">Sign Up</a></h4>
-        </header>
-    </center>
-<div class="vr">&nbsp;</div>
+            <div class="n">
+                <img src="StockHubIcon.jpg" alt="Logo" class="LogoImg">
+            </div>
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Dashboard.html" class="NavigationTabLink">Home</a>
+                </div>
+            </div>
 
-    <div>
-        <div class="split left" >
-            <div class="centered">
-        <form class="form-horizontal" id="registrationForm">
-        
-        <div class="form-group">                  
-          <div class="col-xs-12">
-            <div class="styled-input name logininput">
-                <input type="text" id="username" required/>
-                <label>Username</label>
-                <span></span> </div>
-          </div>
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Dashboard.html" class="NavigationTabLink">News</a>
+                </div>
+            </div>
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Profile_Final.html" class="NavigationTabLink">Profile</a>
+                </div>
+            </div>
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Dashboard.html" class="NavigationTabLink">Analysis</a>
+                </div>
+            </div>
+
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Dashboard.html" class="NavigationTabLink">Trade</a>
+                </div>
+            </div>
+
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Portfolio.html" class="NavigationTabLink"> Portfolio</a>
+                </div>
+            </div>
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Dashboard.html" class="NavigationTabLink">About Us</a>
+                </div>
+            </div>
+
+
         </div>
 
-        <div class="form-group">                  
-          <div class="col-xs-12">
-                <div class="styled-input validate-input name">
-                        <input type="password" id="password" required />
-                        <label>Password</label>
-                <span></span> </div>  
-          </div>
+        <div class="NavigationRightButton">
+            <div class="NavigationTab">
+                <button type="button" class="ButtonSignout" id="sign" data-toggle="modal" data-target=".log-sign">Sign Out</button>
+            </div>
         </div>
 
-        <a class="link" href="#">Forgot Password?</a>
+    </div>
 
-            <h3 id="mssg"></h3>
+    <div class="modal fade bs-modal-sm log-sign" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
 
-        <div class="form-group">                  
-          <div class="col-xs-12">
-                        <div class="btns">  
-                <button id="signup" type="button">
-                      Login
-                </button>
-          </div>
+                <div class="bs-example bs-example-tabs">
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li id="tab1" class=" active tab-style login-shadow "><a href="#signin" data-toggle="tab">Log In</a></li>
+                        <li id="tab2" class=" tab-style "><a href="#signup" data-toggle="tab">Sign Up</a></li>
+
+                    </ul>
+                </div>
+                <div class="modal-body">
+                    <div id="myTabContent" class="tab-content">
+
+                        <div class="tab-pane fade active in" id="signin">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <!-- Sign In Form -->
+                                    <!-- Text input-->
+
+                                    <div class="group">
+                                        <input required="" class="input" type="text" id="username"><span class="highlight"></span><span class="bar"></span>
+                                        <label class="label" for="date">Email address</label></div>
+
+
+                                    <!-- Password input-->
+                                    <div class="group">
+                                        <input required="" class="input" type="password" id="password"><span class="highlight"></span><span class="bar"></span>
+                                        <label class="label" for="date">Password</label>
+                                    </div>
+                                    <em>minimum 6 characters</em>
+
+                                    <div class="forgot-link">
+                                        <a href="#forgot" data-toggle="modal" data-target="#forgot-password"> I forgot my password</a>
+                                    </div>
+
+
+                                    <!-- Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="signin"></label>
+                                        <div class="controls">
+                                            <button id="signin" name="signin" class="btn btn-primary btn-block" type="button">Log In</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+
+
+                        <div class="tab-pane fade" id="signup">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <!-- Sign Up Form -->
+                                    <!-- Text input-->
+                                    <div class="group">
+                                        <input required="" class="input" type="text" id="name"><span class="highlight"></span><span class="bar"></span>
+                                        <label class="label" for="date">Name</label></div>
+
+
+                                    <!-- Password input-->
+                                    <div class="group">
+                                        <input required="" class="input" type="text" id="email"><span class="highlight"></span><span class="bar"></span>
+                                        <label class="label" for="date">Email</label></div>
+
+                                    <!-- Text input-->
+                                    <div class="group">
+                                        <input required="" class="input" type="password" id="setpassword"><span class="highlight"></span><span class="bar"></span>
+                                        <label class="label" for="date">Password</label></div>
+                                    <em>1-8 Characters</em>
+
+                                    <div class="group2">
+                                        <input required="" class="input" type="password" id="repassword"><span class="highlight"></span><span class="bar"></span>
+                                        <label class="label" for="date">Re-enter password</label></div>
+
+
+
+                                    <!-- Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="confirmsignup"></label>
+                                        <div class="controls">
+                                            <button id="confirmsignup" name="confirmsignup" class="btn btn-primary btn-block" type="button">Sign Up</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="modal-footer">
+                <center>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </center>
+                </div>-->
+            </div>
         </div>
     </div>
 
 
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
 
-</form>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
 
-
-<!--
-     <div class="form loginform">
-        <form class="login">
-  
-
-            <div class="elements">
-            <div class="styled-input name logininput">
-                <input type="text" required/>
-                <label>Username</label>
-                <span></span> </div>                
-                <div class="styled-input validate-input name">
-                        <input type="password" required />
-                        <label>Password</label>
-                <span></span> </div>  
-                <div class="btns">  
-                <button class="signup bttn">
-                    <div class="btntext">
-                        LOGIN
-                    </div>
-                </button>
-                <button class="signbtn">
-                        <div class="signtext">
-                            Not Registered?<br/><u>Signup</u>
-                        </div>
-                    </button>
+        <div class="item active">
+            <img src="img/BUSINESSREVIEW.jpg" alt="Watch Stocks" style="width:100%;height:80vh;">
+            <div class="carousel-caption">
+                <!-- <h3>Watch Stocks</h3> -->
             </div>
+        </div>
+
+        <div class="item ">
+            <img src="img/20million.jpg" alt="Watch Stocks" style="width:100%;height:80vh;">
+            <div class="carousel-caption">
+                <!-- <h3>Watch Stocks</h3> -->
             </div>
-            </form>
-        </div>-->
-  </div>
+        </div>
+
+
+        <div class="item ">
+            <img src="img/stock.jpg" alt="Watch Stocks" style="width:100%;height:80vh;">
+            <div class="carousel-caption">
+                <!-- <h3>Watch Stocks</h3> -->
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="img/DJ.jpg" alt="Portfolio" style="width:100%;height:80vh;">
+            <div class="carousel-caption">
+                <!-- <h3>Analyse your Portfolio</h3> -->
+            </div>
+        </div>
+
+
+        <!-- <div class="item">
+           <img src="img/webinar.jpg" alt="Portfolio" style="width:100%;height:80vh;">
+           <div class="carousel-caption">
+              <h3>Analyse your Portfolio</h3>
+           </div>
+         </div>-->
+
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
 </div>
 
-        <div class="split right">
-            <div class="centered">
-                <button class="loginBtn loginBtn--facebook">
-                    Login with Facebook
-                </button>
-                <br>
-                <br>
-                <button class="loginBtn loginBtn--google">
-                    Login with Google
-                </button>
+    <div class="VerticalCarousel">
+
+        <div class="Scrollable">
+
+            <div id="Items">
+
+                <script type="text/javascript">
+
+                    var table = document.createElement('table'), tr, td, row, cell;
+                    table.setAttribute('id', 'TickersScrollable');
+                    for (row = 0; row < 2; row++)
+                    {
+                        tr = document.createElement('tr');
+                        for (cell = 0; cell < 5; cell++)
+                        {
+                            td = document.createElement('td');
+                            td.setAttribute('id', 'TickerBlock');
+                            tr.appendChild(td);
+                            td.innerHTML = row;
+                        }
+                        table.appendChild(tr);
+                    }
+                    document.getElementById('Items').appendChild(table);
+
+                </script>
+
             </div>
+
         </div>
 
+    </div>
+    <div class="tablehead" style="font-family: inherit; font-size: 2vw; color:black; margin-top: 10vh; margin-left: 50%; transform: translate(-15%);">TOP TEN STOCKS</div>
+    <div class="container">
+        <div class="row">
+            <table class="table table-hover table-responsive" id="Top10TableContentTable">
+                <thead>
+                <tr>
+                    <th id="first">Stock ID</th>
+                    <th>CMP</th>
+                    <th>OPEN</th>
+                    <th>CLOSE</th>
+                    <th>PREVIOUS CLOSE</th>
+                    <th>CHANGE</th>
+                    <th>BUY</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="d1">
+                    <td id="first">1</td>
+                    <td id="f1">ABC</td>
+                    <td id="l1">12</td>
+                    <td id="m1">15%</td>
+                    <td id="l1">34</td>
+                    <td id="m1">25%</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
+                </tr>
+                <tr id="d2">
+                    <td id="first">2</td>
+                    <td id="f1">XYZ</td>
+                    <td id="l1">56</td>
+                    <td id="m1">50%</td>
+                    <td id="l1">78</td>
+                    <td id="m1">75%</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
+                </tr>
+                <tr id="d3">
+                    <td id="first">2</td>
+                    <td id="f1">XYZ</td>
+                    <td id="l1">56</td>
+                    <td id="m1">50%</td>
+                    <td id="l1">78</td>
+                    <td id="m1">75%</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
+                </tr>
+                <tr id="d4">
+                    <td id="first">2</td>
+                    <td id="f1">XYZ</td>
+                    <td id="l1">56</td>
+                    <td id="m1">50%</td>
+                    <td id="l1">78</td>
+                    <td id="m1">75%</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
+                </tr>
+                <tr id="d5">
+                    <td id="first">2</td>
+                    <td id="f1">XYZ</td>
+                    <td id="l1">56</td>
+                    <td id="m1">50%</td>
+                    <td id="l1">78</td>
+                    <td id="m1">75%</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
+                </tr>
+                <tr id="d6">
+                    <td id="first">2</td>
+                    <td id="f1">XYZ</td>
+                    <td id="l1">56</td>
+                    <td id="m1">50%</td>
+                    <td id="l1">78</td>
+                    <td id="m1">75%</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
+                </tr>
+                <tr id="d7">
+                    <td id="first">2</td>
+                    <td id="f1">XYZ</td>
+                    <td id="l1">56</td>
+                    <td id="m1">50%</td>
+                    <td id="l1">78</td>
+                    <td id="m1">75%</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
+                </tr>
+                <tr id="d8">
+                    <td id="first">2</td>
+                    <td id="f1">XYZ</td>
+                    <td id="l1">56</td>
+                    <td id="m1">50%</td>
+                    <td id="l1">78</td>
+                    <td id="m1">75%</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
+                </tr>
+                <tr id="d9">
+                    <td id="first">2</td>
+                    <td id="f1">XYZ</td>
+                    <td id="l1">56</td>
+                    <td id="m1">50%</td>
+                    <td id="l1">78</td>
+                    <td id="m1">75%</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
+                </tr>
+                <tr id="d10">
+                    <td id="first">2</td>
+                    <td id="f1">XYZ</td>
+                    <td id="l1">56</td>
+                    <td id="m1">50%</td>
+                    <td id="l1">78</td>
+                    <td id="m1">75%</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<div class="w3-container">
+
+    <!--<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Buy/Sell</button>-->
+
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom"  style="width:40vw; height:45vh;">
+            <header class="w3-container custom-modal-header">
+      <span onclick="document.getElementById('id01').style.display='none'"
+            class="w3-button w3-xlarge w3-display-topright">&times;</span>
+                <h2>Buy Transaction</h2>
+            </header>
+            <div id="Buy" class="w3-container city">
+                <form class="form" id="registrationForm">
+
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="account"><h4>Account</h4></label>
+                            <input type="text" class="form-control" name="account" id="buyaccount" placeholder="Account" title="enter your account number." readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="stockid"><h4>Stock ID</h4></label>
+                            <input type="text" class="form-control" name="stockid" id="buystockid" placeholder="Stock ID" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="value"><h4>Current value of stock</h4></label>
+                            <input type="text" class="form-control" name="value" id="currvalue" placeholder="Current value of stock" readonly>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="quantity"><h4>Quantity</h4></label>
+                            <input type="number" class="form-control" name="quantity" id="buyquantity" placeholder="Quantity of stocks you want to purchase" min="0" step="1" required>
+                        </div>
+                    </div>
+
+                    <!--<div class="form-group">-->
+
+                    <!--<div class="col-xs-6">-->
+                    <!--<label for="ordertype"><h4>Order type</h4></label>-->
+                    <!--<div >-->
+                    <!--<input type="radio" name="rb1" value="market"> Market-->
+                    <!--&nbsp;&nbsp;&nbsp;-->
+                    <!--<input type="radio" name="rb1" value="limit"> Limit-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+
+
+
+                    <!--<div class="form-group">-->
+
+                    <!--<div class="col-xs-6">-->
+                    <!--<label for="limit"><h4>Limit</h4></label>-->
+                    <!--<input type="text" class="form-control" id="stock" placeholder="Limit of stock">-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+                    <div class="form-group">
+
+                        <div class="col-xs-6">
+                            <label for="total"><h4>Total payable amount</h4></label>
+                            <input type="text" class="form-control" id="buytotal" placeholder="Total amount to pay" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <br>
+                            <button class="btn btn-lg btn-success" type="button" id="purchase"><i class="glyphicon glyphicon-euro"></i>Purchase stock</button>
+                            <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<footer class="footer-distributed">
+
+    <div class="footer-left">
+
+        <h3>STOCK<span style="color: #50C878">HUB</span></h3>
+
+        <p class="footer-links">
+            <a href="#">Home</a>
+            ·
+            <a href="#">News</a>
+            ·
+            <a href="#">Profile</a>
+            ·
+            <a href="#">Analysis</a>
+            ·
+            <a href="#">Trade</a>
+            ·
+            <a href="#">Portfolio</a>
+            ·
+            <a href="#">About Us</a>
+        </p>
+
+        <p class="footer-company-name">StockHub &copy; 2018</p>
+    </div>
+
+    <div class="footer-center">
+
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>PICT, Dhankawadi</span> Pune, India</p>
+        </div>
+
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+91 9999999999</p>
+        </div>
+
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:support@company.com">support@stockhub.com</a></p>
+        </div>
 
     </div>
-        <script src="/webjars/jquery/jquery.min.js"></script>
-        <script src="/webjars/sockjs-client/sockjs.min.js"></script>
-        <script src="/webjars/stomp-websocket/stomp.min.js"></script>
-        <script src="js/index.js"></script>
+
+    <div class="footer-right">
+
+        <p class="footer-company-about">
+            <span>About the company</span>
+            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+        </p>
+
+        <div class="footer-icons">
+
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+
+        </div>
+
+    </div>
+
+</footer>
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+<script src="js/dashboard.js"></script>
 </body>
 </html>

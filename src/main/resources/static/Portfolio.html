@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template</title>
+    <link rel="stylesheet" type="text/css" href="template.css">
+    <link rel="stylesheet" type="text/css" href="portfolio.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<div id="a">
+    <div id="Navigation">
+
+        <div class="NavigationLeft">
+
+            <div class="n">
+                <img src="StockHubIcon.jpg" alt="Logo" class="LogoImg">
+            </div>
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Dashboard.html" class="NavigationTabLink">Home</a>
+                </div>
+            </div>
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Dashboard.html" class="NavigationTabLink">News</a>
+                </div>
+            </div>
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Profile_Final.html" class="NavigationTabLink">Profile</a>
+                </div>
+            </div>
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Dashboard.html" class="NavigationTabLink">Analysis</a>
+                </div>
+            </div>
+
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Dashboard.html" class="NavigationTabLink">Trade</a>
+                </div>
+            </div>
+
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Portfolio.html" class="NavigationTabLink"> Portfolio</a>
+                </div>
+            </div>
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Dashboard.html" class="NavigationTabLink">About Us</a>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="NavigationRightButton">
+            <div class="NavigationTab">
+                <button type="button" class="ButtonSignout">Sign Out</button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="container">
+
+        <div class="tablehead" style="font-family: 'Ubuntu', sans-serif; font-size: 2vw; color:black; margin-top: 15vh; margin-left: 20%; transform: translate(-15%);">YOUR PORTFOLIO</div>
+        <div class="row">
+             <table class="table table-hover table-responsive" id="bought_table" >
+
+                <tr id="table-head">
+                    <b><td>Stock ID</td>
+                    <td>Cost Price</td>
+                    <td>Quantity</td>
+                    <td>MP</td>
+                    <td>Realised Profit/Loss</td>
+                    <td>Realised Profit/Loss%</td>
+                    <td>Unrealised Profit/Loss</td>
+                    <td>Unrealised Profit/Loss%</td>
+                    <td>Sell</td></b>
+                </tr>
+
+            </table>
+            <div class="details">
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+            <header class="w3-container" id="modal-head">
+      <span onclick="document.getElementById('id01').style.display='none'"
+            class="w3-button w3-xlarge w3-display-topright">&times;</span>
+                <h2>Sell Transaction</h2>
+            </header>
+
+
+            <div id="Sell" class="w3-container city">
+                <form class="form" id="registrationForm">
+                    <div class="form-group">
+
+                        <div class="col-xs-6">
+                            <label for="sell_account"><h4>Account</h4></label>
+                            <input type="text" class="form-control" name="account" id="sell_account" placeholder="Account" title="enter your account number." required readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-xs-6">
+                            <label for="sell_stockid"><h4>Stock ID</h4></label>
+                            <input type="text" class="form-control" name="stockid" id="sell_stockid" placeholder="Stock ID" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="sell_value"><h4>Current value of stock</h4></label>
+                            <input type="text" class="form-control" name="value" id="sell_value" placeholder="Current value of stock" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="prevvalue"><h4>Value of stock when purchased</h4></label>
+                            <input type="text" class="form-control" name="prevvalue" id="sell_prevvalue" placeholder="Value of stock when purch ased" readonly>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="sell_quantity"><h4>Quantity</h4></label>
+                            <input type="number" class="form-control" name="quantity" id="sell_quantity" placeholder="Quantity of stocks you want to sell" min="0" step="1">
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <div class="col-xs-6">
+                            <label for="total"><h4>Total amount</h4></label>
+                            <input type="text" class="form-control" id="sell_total" placeholder="Total amount you will receive" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-xs-6">
+                            <label for="total"><h4>Profit/Loss</h4></label>
+                            <input type="text" class="form-control" id="gain" placeholder="Profit/Loss" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <br>
+                            <button class="btn btn-lg btn-success" type="button" id="sell_submit"><i class="glyphicon glyphicon-euro"></i>Sell stock</button>
+                            <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer-distributed">
+
+    <div class="footer-left">
+
+        <h3>STOCK<span style="color: #50C878">HUB</span></h3>
+
+        <p class="footer-links">
+            <a href="#">Home</a>
+            ·
+            <a href="#">News</a>
+            ·
+            <a href="#">Profile</a>
+            ·
+            <a href="#">Analysis</a>
+            ·
+            <a href="#">Trade</a>
+            ·
+            <a href="#">Portfolio</a>
+            ·
+            <a href="#">About Us</a>
+        </p>
+
+        <p class="footer-company-name">StockHub &copy; 2018</p>
+    </div>
+
+    <div class="footer-center">
+
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>PICT, Dhankawadi</span> Pune, India</p>
+        </div>
+
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+91 9999999999</p>
+        </div>
+
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:support@company.com">support@stockhub.com</a></p>
+        </div>
+
+    </div>
+
+    <div class="footer-right">
+
+        <p class="footer-company-about">
+            <span>About the company</span>
+            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+        </p>
+
+        <div class="footer-icons">
+
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+
+        </div>
+
+    </div>
+
+</footer>
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+<script type="text/javascript" src="bought.js"></script>
+</body>
+</html>

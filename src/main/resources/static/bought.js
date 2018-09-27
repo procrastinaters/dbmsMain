@@ -41,7 +41,8 @@ function connect() {
                 table.rows[i+1].cells[0].innerHTML=message[i].stock;
                 table.rows[i+1].cells[1].innerHTML=message[i].pricePerShare;
                 table.rows[i+1].cells[2].innerHTML=message[i].quantity;
-                table.rows[i+1].cells[8].innerHTML="<button type=\"button\" data-toggle=\"modal\" data-target=\"#sell\" data-uid=\"2\" class=\"sell btn btn-warning btn-sm\"><span class=\"glyphicon glyphicon-usd\"></span></button>"
+
+                table.rows[i+1].cells[8].innerHTML="<b  class=\"w3-button \" style='background-color: #50C878;color:white;border-radius: 5px;box-shadow: 2px 3px 2px #111;' onclick=\"document.getElementById('id01').style.display='block'\">SELL</b>";
                     table.rows[i+1].cells[8].addEventListener("click",function (e) {
                         // document.getElementById('id01').style.display='block';
                         // selectedRow=e.target.closest('tr').rowIndex;

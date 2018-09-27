@@ -3,10 +3,7 @@ package com.example.jdbctrial;
 import com.example.jdbctrial.CreateTables.*;
 import com.example.jdbctrial.InformationObjects.*;
 import com.example.jdbctrial.InsertIntoTables.*;
-import com.example.jdbctrial.ReadTables.ReadAccount;
-import com.example.jdbctrial.ReadTables.ReadBoughtStocks;
-import com.example.jdbctrial.ReadTables.ReadStocks;
-import com.example.jdbctrial.ReadTables.ReadUser;
+import com.example.jdbctrial.ReadTables.*;
 import com.example.jdbctrial.UpdateTables.UpdateStocks;
 import org.springframework.stereotype.Component;
 
@@ -116,6 +113,11 @@ public class Database{
         return readBoughtStocks.read(myConn,username);
     }
 
+    public  ResultSet readCustom(String username){
+
+        ReadCustom readCustom=new ReadCustom();
+        return readCustom.readUnion(myConn, username);
+    }
     public ResultSet readUser(){
 
         ReadUser readUser =new ReadUser();
