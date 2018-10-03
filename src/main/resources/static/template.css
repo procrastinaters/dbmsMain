@@ -12,6 +12,7 @@ html{
 }
 #a{
     /*height: 99vh;*/
+    min-height: 75vh;
     width: 100vw;
     background-color: #f1f1f1;
 }

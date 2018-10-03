@@ -1,10 +1,28 @@
 
+
 function connect() {
     var socket = new SockJS('/gs-guide-websocket-1');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/user/queue/reply', function (message) {
+        stompClient.send("/app/Profile", {}, JSON.stringify({'username':localStorage.getItem("user")}));
+        stompClient.subscribe('/user/queue/reply/Profile', function (message) {
+            message=JSON.parse(message.body);
+            document.getElementById("first_name").value=message.name;
+            // sex.value=message.sex;
+            document.getElementById("dob").value=message.dob;
+            document.getElementById("mobile").value=message.contactNo;
+            document.getElementById("email").value=message.email;
+            var select=document.getElementById("sex");
+            if(message.sex=="M") {
+                document.getElementById("sex").selectedIndex = "0";
+            }else{
+                    document.getElementById("sex").selectedIndex="1";
+                }
+
+
+        });
+            stompClient.subscribe('/user/queue/reply', function (message) {
 
             message=JSON.parse(message.body);
             if(message==false)

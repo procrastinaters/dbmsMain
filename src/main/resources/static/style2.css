@@ -168,8 +168,9 @@ input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid
 }
 
 
-.modal-body{background-image:url('picture.jpg');
-background-size:cover;
+.modal-body{
+    background-image:url('picture.jpg');
+background-sizef:cover;
 z-inedx:4;}
 
 em{display:none;}

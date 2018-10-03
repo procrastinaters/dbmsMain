@@ -118,10 +118,10 @@ public class Database{
         ReadCustom readCustom=new ReadCustom();
         return readCustom.readUnion(myConn, username);
     }
-    public ResultSet readUser(){
+    public ResultSet readUser(String user){
 
         ReadUser readUser =new ReadUser();
-        return readUser.read(myConn);
+        return readUser.read(myConn,user);
     }
     public void updateStocks(Stock[] stocks){
 
