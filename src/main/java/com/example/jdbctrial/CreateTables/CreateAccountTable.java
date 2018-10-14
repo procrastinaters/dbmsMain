@@ -12,7 +12,7 @@ public class CreateAccountTable {
         sql="CREATE TABLE IF NOT EXISTS account(" +
                 "Username varchar(30) NOT NULL," +
                 "Password varchar(15) NOT NULL," +
-                "Balance float NOT NULL," +
+                "Balance float NOT NULL DEFAULT 1000," +
                 "PRIMARY KEY (Username)" +
                 ")";
         return sql;

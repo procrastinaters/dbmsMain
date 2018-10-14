@@ -7,7 +7,7 @@ font-size:20px;
 width:50%;
 background-color:#f2f2f2;
   text-align:center;
-  
+
 
 }
 .nav-tabs > li > a {
@@ -45,19 +45,20 @@ box-shadow: -5px 0px 6px 0px rgba(82,82,82,0.52);
 
 .modal-header{background-color:#e5ecf4;}
 
-.group { 
+.group {
+    color: black;
     position: relative; 
     margin-top: 30px; 
 }
 
 
 .input {
-    font-size: 18px;
+    font-size: 2.4vh;
     padding: 10px 10px 10px 5px;
     -webkit-appearance: none;
     display: block;
     background: none;
-    color: #636363;
+    color: white;
     width: 100%;
     border: none;
     border-radius: 0;
@@ -70,8 +71,7 @@ box-shadow: -5px 0px 6px 0px rgba(82,82,82,0.52);
 /* Label */
 
 .label {
-    color: #757575; 
-    font-size: 18px;
+    color: black;
     font-weight: normal;
     position: absolute;
     pointer-events: none;
@@ -80,7 +80,16 @@ box-shadow: -5px 0px 6px 0px rgba(82,82,82,0.52);
     transition: all 0.2s ease;
 }
 
+label{
+    color: black;
 
+}
+
+form{
+
+    font-family: 'Ubuntu', sans-serif;
+    color:black;
+}
 /* active */
 
 /*.input:focus ~ .label, .input.used ~ .label {
@@ -93,12 +102,12 @@ box-shadow: -5px 0px 6px 0px rgba(82,82,82,0.52);
 */
 
 input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
-
+margin-left: 0.5%;
   color: #4a89dc;
   top: -20px;
    -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  font-size: 14px; }
+  font-size: 1.6vh; }
 
 /* Underline */
 
@@ -169,9 +178,15 @@ input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid
 
 
 .modal-body{
-    background-image:url('picture.jpg');
-background-sizef:cover;
-z-inedx:4;}
+
+    /*background-image:url('img/picture.jpg');*/
+background-size:cover;
+    background-color: #292c2f;
+    z-index:4;}
 
 em{display:none;}
 
+#myModal{
+
+    margin-top: 20vh;
+}

@@ -1,5 +1,6 @@
 package com.example.jdbctrial.InsertIntoTables;
 
+import com.example.jdbctrial.Database;
 import com.example.jdbctrial.InformationObjects.BoughtStocks;
 import com.example.jdbctrial.InformationObjects.SoldStocks;
 
@@ -9,6 +10,8 @@ import java.sql.SQLException;
 
 public class InsertToSold {
 
+
+    Database database=new Database();
     private String sql;
     private SoldStocks soldStocks;
     Connection connection;
@@ -16,16 +19,18 @@ public class InsertToSold {
 
     public void executeSql() throws SQLException {
 
-        sql="INSERT INTO transactionhistory values(?,?,?,?,?,?,?)";
+        i=database.readSellId();
+
+        sql="INSERT INTO soldstocks(TransId,Ticker,Username,Quantity,Sell_Price,ProfitLoss) values(?,?,?,?,?,?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(1,"SOLD"+Integer.toString(i++));
+        preparedStatement.setString(1,"SOLD-"+Integer.toString(i++));
         preparedStatement.setString(2,soldStocks.getSymbol());
         preparedStatement.setString(3,soldStocks.getUsername());
         preparedStatement.setInt(4,soldStocks.getQuantity());
-        preparedStatement.setDate(5,soldStocks.getDate());
-        preparedStatement.setInt(6,soldStocks.getSellPrice());
-        preparedStatement.setInt(7,soldStocks.getProfitLoss());
+//        preparedStatement.setString(5,"default");
+        preparedStatement.setFloat(5,soldStocks.getSellPrice());
+        preparedStatement.setDouble(6,soldStocks.getProfitLoss());
         preparedStatement.executeUpdate();
     }
 
@@ -34,5 +39,6 @@ public class InsertToSold {
         this.soldStocks=soldStocks;
         this.connection=connection;
         executeSql();
+        database.updateSellId(i);
     }
 }

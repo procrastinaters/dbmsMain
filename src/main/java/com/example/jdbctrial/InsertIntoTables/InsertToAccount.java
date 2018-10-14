@@ -16,12 +16,12 @@ public class InsertToAccount {
 
     public void executeSql() throws SQLException {
 
-        sql="INSERT INTO account values(?,?,?)";
+        sql="INSERT INTO account(Username,Password) values(?,?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1,account.getUsername());
         preparedStatement.setString(2,account.getPassword());
-        preparedStatement.setInt(3,account.getBalance());
+//        preparedStatement.setString(3,"default");
 
         preparedStatement.executeUpdate();
     }

@@ -44,7 +44,8 @@ public class TablesController {
                         resultSet.getString("symbol"),
                         resultSet.getInt("Quantity"),
                         resultSet.getDouble("price"),
-                        resultSet.getDouble("PL")));
+                        resultSet.getDouble("PL"),
+                        resultSet.getDate(  "DateTime")));
 
             } while (resultSet.next());
         }catch (Exception e){
@@ -61,18 +62,41 @@ public class TablesController {
 
         boughtStocks=new ArrayList<>();
 
+
         String username= obj.getString("username");
         ResultSet resultSet=database.readBoughtStocks(username);
         resultSet.first();
         try {
             do {
+                int qty=0,qty1=0;
+                float sellPrice=0,pl=0;
+                try{
+                    ResultSet resultSet1=(database.readCurrentStocks(username,resultSet.getString("StockId")));
+                    resultSet1.first();
+                    qty=resultSet1.getInt("Quantity");
+                    qty1=resultSet.getInt("Quantity");
+                    qty1=qty1-qty;
+
+                }catch (Exception e){
+//                  qty=0;
+//                  qty1=0;
+//                  pl=0;
+                }
+
+                try{
+                    ResultSet resultSet2=(database.readSellPrice(username,resultSet.getString("StockId")));
+                    resultSet2.first();
+                    sellPrice=resultSet2.getFloat("Sell_Price");
+                    pl=sellPrice-(qty1*resultSet.getFloat("CostPrice"));
+                }catch (Exception e){
+//                    e.printStackTrace();
+                }
                 boughtStocks.add(new BoughtStocks(resultSet.getString("Username"),
                         resultSet.getString("StockId"),
-                        resultSet.getInt("Quantity"),
+                        qty,
                         resultSet.getFloat("CostPrice"),
                         resultSet.getFloat("TotalPrice"),
-                        resultSet.getInt("TransId"),
-                        resultSet.getInt("QuantitySold")));
+                        pl));
 
             } while (resultSet.next());
         }catch (Exception e){

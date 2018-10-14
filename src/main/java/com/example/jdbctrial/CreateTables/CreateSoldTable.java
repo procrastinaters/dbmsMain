@@ -22,7 +22,7 @@ public class CreateSoldTable {
 
     public CreateSoldTable(Connection connection) throws SQLException {
 
-        Statement statement=connection.createStatement();
-        statement.executeUpdate(setSql());    }
-}
+        Statement statement = connection.createStatement();
+//        statement.executeUpdate(setSql());    }
+    }}
 

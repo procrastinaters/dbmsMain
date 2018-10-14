@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Template</title>
-    <link rel="stylesheet" type="text/css" href="template.css">
-    <link rel="stylesheet" type="text/css" href="portfolio.css">
+    <link rel="stylesheet" type="text/css" href="css/template.css">
+    <link rel="stylesheet" type="text/css" href="css/portfolio.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
@@ -26,36 +26,36 @@
         <div class="NavigationLeft">
 
             <div class="n">
-                <img src="StockHubIcon.jpg" alt="Logo" class="LogoImg">
+                <img src="img/StockHubIcon.jpg" alt="Logo" class="LogoImg">
             </div>
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">Home</a>
+                    <a href="index.html" class="NavigationTabLink">Home</a>
                 </div>
             </div>
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">News</a>
+                    <a href="index.html" class="NavigationTabLink">Stocks</a>
                 </div>
             </div>
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Profile_Final.html" class="NavigationTabLink">Profile</a>
+                    <a href="Profile.html" class="NavigationTabLink">Profile</a>
                 </div>
             </div>
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">Analysis</a>
+                    <a href="index.html" class="NavigationTabLink">Analysis</a>
                 </div>
             </div>
 
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">Trade</a>
+                    <a href="Transaction%20History.html" class="NavigationTabLink">History</a>
                 </div>
             </div>
 
@@ -68,7 +68,7 @@
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">About Us</a>
+                    <a href="index.html" class="NavigationTabLink">About Us</a>
                 </div>
             </div>
 
@@ -77,7 +77,7 @@
 
         <div class="NavigationRightButton">
             <div class="NavigationTab">
-                <button type="button" class="ButtonSignout">Sign Out</button>
+                <button type="button" class="ButtonSignout" id="sign">Sign Out</button>
             </div>
         </div>
 
@@ -88,19 +88,20 @@
 
     <div class="container">
 
-        <div class="tablehead" style="font-family: 'Ubuntu', sans-serif; font-size: 2vw; color:black; margin-top: 15vh; margin-left: 20%; transform: translate(-15%);">YOUR PORTFOLIO</div>
+        <div class="tablehead" style="font-family: 'Ubuntu', sans-serif; font-size: 2vw; color:black; margin-top: 15vh; margin-left: 45%; transform: translate(-15%);">YOUR PORTFOLIO</div>
+
         <div class="row">
              <table class="table table-hover table-responsive" id="bought_table" >
 
                 <tr id="table-head">
                     <b><td>Stock ID</td>
-                    <td>Cost Price</td>
-                    <td>Quantity</td>
-                    <td>MP</td>
-                    <td>Realised Profit/Loss</td>
-                    <td>Realised Profit/Loss%</td>
-                    <td>Unrealised Profit/Loss</td>
-                    <td>Unrealised Profit/Loss%</td>
+                    <td>Cost&nbsp;Price&nbsp;&nbsp;</td>
+                    <td>Quantity&nbsp;&nbsp;</td>
+                    <td>Market&nbsp;Price&nbsp;&nbsp;</td>
+                    <td>Realised&nbsp;Profit/Loss&nbsp;&nbsp;</td>
+                    <td>Realised&nbsp;Profit/Loss%&nbsp;&nbsp;</td>
+                    <td>Unrealised&nbsp;Profit/Loss&nbsp;&nbsp;</td>
+                    <td>Unrealised&nbsp;Profit/Loss%&nbsp;&nbsp;</td>
                     <td>Sell</td></b>
                 </tr>
 
@@ -110,6 +111,8 @@
             </div>
 
         </div>
+        <button onclick="exportTableToCSV('StockHub.csv')" class="w3-btn w3-round-xlarge" style="font-size: 2vh;font-family: 'Ubuntu', sans-serif;color: white;background-color: #50C878; margin:2vh;margin-left: 55vw;margin-top: 0.5vh">Export HTML Table To CSV File</button>
+
     </div>
 
 
@@ -121,8 +124,7 @@
                 <h2>Sell Transaction</h2>
             </header>
 
-
-            <div id="Sell" class="w3-container city">
+        (<div id="Sell" class="w3-container city">
                 <form class="form" id="registrationForm">
                     <div class="form-group">
 
@@ -191,7 +193,33 @@
         </div>
     </div>
 </div>
+<div id="success" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom"  style="width:30vw; height:20vh;margin-top: 10%">
+        <header class="w3-container custom-modal-header">
+        <span onclick="document.getElementById('success').style.display='none'"
+              class="w3-button w3-display-topright" id="refresh">&times;</span>
+            <h2>Transaction Success</h2>
+        </header>
+        <div class="w3-container">
+            <p></p>
+            <p style="color:#009900; font-family: 'Ubuntu', sans-serif;font-size: 3vh;">YOUR TRANSACTION WAS SUCCESSFUL!</p>
+        </div>
+    </div>
+</div>
 
+<div id="failure" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom"  style="width:30vw; height:20vh;margin-top: 10%">
+        <header class="w3-container custom-modal-header">
+        <span onclick="document.getElementById('failure').style.display='none'"
+              class="w3-button w3-display-topright" id="refresh">&times;</span>
+            <h2>Transaction Failure</h2>
+        </header>
+        <div class="w3-container">
+            <p></p>
+            <p style="color:#BB3F30; font-family: 'Ubuntu', sans-serif;font-size: 3vh;">YOUR TRANSACTION FAILED!</p>
+        </div>
+    </div>
+</div>
 
 <footer class="footer-distributed">
 
@@ -259,6 +287,7 @@
 <script src="/webjars/jquery/jquery.min.js"></script>
 <script src="/webjars/sockjs-client/sockjs.min.js"></script>
 <script src="/webjars/stomp-websocket/stomp.min.js"></script>
-<script type="text/javascript" src="bought.js"></script>
+<script type="text/javascript" src="js/bought.js"></script>
+<script type="text/javascript" src="js/exportToCSV.js"></script>
 </body>
 </html>

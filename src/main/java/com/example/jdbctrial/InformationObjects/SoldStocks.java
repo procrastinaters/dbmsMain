@@ -12,15 +12,15 @@ public class SoldStocks {
     String username;
     Integer quantity;
     Date date;
-    Integer sellPrice;
-    Integer profitLoss;
+    Float sellPrice;
+    Double profitLoss;
 
     public SoldStocks(){
 
-        profitLoss=0;
+        profitLoss=0.0;
     }
 
-    public SoldStocks(String transId, String symbol, String username, Integer quantity, Date date, Integer sellPrice, Integer profitLoss) {
+    public SoldStocks(String transId, String symbol, String username, Integer quantity, Date date, Float sellPrice, Double profitLoss) {
         this.transId = transId;
         this.symbol = symbol;
         this.username = username;
@@ -50,11 +50,11 @@ public class SoldStocks {
         return date;
     }
 
-    public Integer getSellPrice() {
+    public Float getSellPrice() {
         return sellPrice;
     }
 
-    public Integer getProfitLoss() {
+    public Double getProfitLoss() {
         return profitLoss;
     }
 }

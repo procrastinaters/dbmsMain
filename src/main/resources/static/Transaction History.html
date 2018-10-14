@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Template</title>
-    <link rel="stylesheet" type="text/css" href="template.css">
-    <link rel="stylesheet" type="text/css" href="portfolio.css">
+    <link rel="stylesheet" type="text/css" href="css/template.css">
+    <link rel="stylesheet" type="text/css" href="css/portfolio.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
@@ -26,7 +26,7 @@
         <div class="NavigationLeft">
 
             <div class="n">
-                <img src="StockHubIcon.jpg" alt="Logo" class="LogoImg">
+                <img src="img/StockHubIcon.jpg" alt="Logo" class="LogoImg">
             </div>
             <div class="Navhover">
                 <div class="NavigationTab">
@@ -36,26 +36,26 @@
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">News</a>
+                    <a href="index.html" class="NavigationTabLink">News</a>
                 </div>
             </div>
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Profile_Final.html" class="NavigationTabLink">Profile</a>
+                    <a href="Profile.html" class="NavigationTabLink">Profile</a>
                 </div>
             </div>
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">Analysis</a>
+                    <a href="Chart.html" class="NavigationTabLink">Analysis</a>
                 </div>
             </div>
 
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">Trade</a>
+                    <a href="Transaction%20History.html" class="NavigationTabLink">History</a>
                 </div>
             </div>
 
@@ -68,7 +68,7 @@
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">About Us</a>
+                    <a href="index.html" class="NavigationTabLink">About Us</a>
                 </div>
             </div>
 
@@ -88,7 +88,7 @@
 
     <div class="container">
 
-        <div class="tablehead" style="font-family: 'Ubuntu', sans-serif; font-size: 2vw; color:black; margin-top: 15vh; margin-left: 20%; transform: translate(-15%);">TRANSACTION HISTORY</div>
+        <div class="tablehead" style="font-family: 'Ubuntu', sans-serif; font-size: 2vw; color:black; margin-top: 15vh; margin-left: 27%; transform: translate(-15%);">TRANSACTION HISTORY</div>
         <div class="row">
             <table class="table table-hover table-responsive" id="bought_table">
 
@@ -102,11 +102,14 @@
                 </tr>
 
             </table>
+
             <div class="details">
 
             </div>
 
         </div>
+        <button onclick="exportTableToCSV('StockHub.csv')" class="w3-btn w3-round-xlarge" style="font-size: 2vh;font-family: 'Ubuntu', sans-serif;color: white;background-color: #50C878; margin:2vh;margin-left: 71vh;margin-top: 0.5vh">Export HTML Table To CSV File</button>
+
     </div>
 
 
@@ -254,8 +257,9 @@
 
 </footer>
 <script src="/webjars/jquery/jquery.min.js"></script>
-<script src="/webjars/sockjs-client/sockjs.min.js   "></script>
+<script src="/webjars/sockjs-client/sockjs.min.js"></script>
 <script src="/webjars/stomp-websocket/stomp.min.js"></script>
-<script type="text/javascript" src="transaction.js"></script>
+<script type="text/javascript" src="js/transaction.js"></script>
+<script type="text/javascript" src="js/exportToCSV.js"></script>
 </body>
 </html>

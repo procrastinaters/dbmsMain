@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+    <!--<title>Stock Analysis</title>-->
+    <!--<script src="/webjars/jquery/jquery.min.js"></script>-->
+    <!--<script src="/webjars/sockjs-client/sockjs.min.js"></script>-->
+    <!--<script src="/webjars/jquery/jquery.min.js"></script>-->
+    <!--<script src="/webjars/sockjs-client/sockjs.min.js"></script>-->
+    <!--<script src="/webjars/stomp-websocket/stomp.min.js"></script>-->
+    <!--<script src="js/Graph.js"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <!--<script src="/webjars/stomp-websocket/stomp.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+    <title>Stock Analysis</title>
+    <link rel="stylesheet" type="text/css" href="css/Chart.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="js/Chart.js"></script>
+
+</head>
+<body>
+<div id="a">
+    <div id="Navigation">
+
+        <div class="NavigationLeft">
+
+            <div class="n">
+                <img src="img/StockHubIcon.jpg" alt="Logo" class="LogoImg">
+            </div>
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Dashboard.html" class="NavigationTabLink">Home</a>
+                </div>
+            </div>
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Dashboard.html" class="NavigationTabLink">News</a>
+                </div>
+            </div>
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Profile_Final.html" class="NavigationTabLink">Profile</a>
+                </div>
+            </div>
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Dashboard.html" class="NavigationTabLink">Analysis</a>
+                </div>
+            </div>
+
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Dashboard.html" class="NavigationTabLink">Trade</a>
+                </div>
+            </div>
+
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Portfolio.html" class="NavigationTabLink"> Portfolio</a>
+                </div>
+            </div>
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Dashboard.html" class="NavigationTabLink">About Us</a>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="NavigationRightButton">
+            <div class="NavigationTab">
+                <button type="button" class="ButtonSignout">Sign Out</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="Search">
+            <div class="SearchWrapper">
+                <input class="" id="SearchInput" type="text" placeholder="Search..."></input>
+                <button id="SearchButton" type="submit"onclick="SubmitSearchInput()"><i class="fa fa-long-arrow-right" style="font-size:4vh;color:#fff"></i></button>
+            </div>
+    </div>
+
+
+    <div class="Content">
+
+        <div class="Summary">
+            <div class="Heading">
+                Market Data
+            </div>
+            <div id="MarketStats">
+                <script type="text/javascript">
+
+                    var table = document.createElement('table'), tr, td, row, cell;
+                    table.setAttribute('class', 'MarketStatsTable');
+
+                    tr = document.createElement('tr');
+
+                    td = document.createElement('td');
+                    td.setAttribute('class', 'Labels');
+                    tr.appendChild(td);
+                    td.innerHTML = "Previous Close : ";
+
+                    td = document.createElement('td');
+                    td.setAttribute('class', 'Labels');
+                    tr.appendChild(td);
+                    td.innerHTML = 0;
+
+                    table.appendChild(tr);
+
+                    tr = document.createElement('tr');
+
+                    td = document.createElement('td');
+                    td.setAttribute('class', 'Labels');
+                    tr.appendChild(td);
+                    td.innerHTML = "Open : ";
+
+                    td = document.createElement('td');
+                    td.setAttribute('class', 'Labels');
+                    tr.appendChild(td);
+                    td.innerHTML = 0;
+
+                    table.appendChild(tr);
+
+                    tr = document.createElement('tr');
+
+                    td = document.createElement('td');
+                    td.setAttribute('class', 'Labels');
+                    tr.appendChild(td);
+                    td.innerHTML = "CMP : ";
+
+                    td = document.createElement('td');
+                    td.setAttribute('class', 'Labels');
+                    tr.appendChild(td);
+                    td.innerHTML = 0;
+
+                    table.appendChild(tr);
+
+
+                    document.getElementById('MarketStats').appendChild(table);
+
+                </script>
+            </div>
+        </div>
+
+        <div class="Graph">
+            <div id="chartContainer"></div>
+            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+
+            <h3>STOCK<span style="color: #50C878">HUB</span></h3>
+
+            <p class="footer-links">
+                <a href="#">Home</a>
+                ·
+                <a href="#">News</a>
+                ·
+                <a href="#">Profile</a>
+                ·
+                <a href="#">Analysis</a>
+                ·
+                <a href="#">Trade</a>
+                ·
+                <a href="#">Portfolio</a>
+                ·
+                <a href="#">About Us</a>
+            </p>
+
+            <p class="footer-company-name">StockHub &copy; 2018</p>
+        </div>
+
+        <div class="footer-center">
+
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>PICT, Dhankawadi</span> Pune, India</p>
+            </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+91 9999999999</p>
+            </div>
+
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@company.com">support@stockhub.com</a></p>
+            </div>
+
+        </div>
+
+        <div class="footer-right">
+
+            <p class="footer-company-about">
+                <span>About the company</span>
+                Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+            </p>
+
+            <div class="footer-icons">
+
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
+
+            </div>
+
+        </div>
+
+    </footer>
+</body>
+</html>
+
+
+
+
+

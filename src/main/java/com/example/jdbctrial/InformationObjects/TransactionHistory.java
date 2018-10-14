@@ -1,5 +1,8 @@
 package com.example.jdbctrial.InformationObjects;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
 public class TransactionHistory {
 
     private String transid;
@@ -7,13 +10,16 @@ public class TransactionHistory {
     private Integer quantity;
     private Double price;
     private Double pl;
+    Date timestamp;
 
-    public TransactionHistory(String transid, String symbol, Integer quantity, Double price, Double pl) {
+
+    public TransactionHistory(String transid, String symbol, Integer quantity, Double price, Double pl, Date timestamp) {
         this.transid = transid;
         this.symbol = symbol;
         this.quantity = quantity;
         this.price = price;
         this.pl = pl;
+        this.timestamp=timestamp;
     }
 
     public String getTransid() {
@@ -34,5 +40,9 @@ public class TransactionHistory {
 
     public Double getPl() {
         return pl;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
     }
 }

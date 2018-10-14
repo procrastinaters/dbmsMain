@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import java.io.IOException;
 import java.sql.SQLException;
 
-
 @Controller
 public class TransactionController {
 
@@ -21,23 +20,30 @@ public class TransactionController {
     ObjectMapper mapper = new ObjectMapper();
 
     @MessageMapping("/buy")
-    @SendToUser("/queue/reply")
-    public Boolean buy(String json) throws IOException, SQLException {
+    @SendToUser("/queue/buy")
+    public Boolean buy(String json) throws IOException {
         BoughtStocks boughtStocks = mapper.readValue(json, BoughtStocks.class);
         System.out.println(boughtStocks.getStock());
+        try {
+            database.insertToBoughtTable(boughtStocks);
+            return true;
+        }catch (Exception e){
 
-        database.insertToBoughtTable(boughtStocks);
-
-        return true;
+            return false;
+        }
     }
     @MessageMapping("/sell")
-    @SendToUser("/queue/reply")
-    public Boolean sell(String json) throws IOException, SQLException {
+    @SendToUser("/queue/sell")
+    public Boolean sell(String json) throws IOException {
 
         SoldStocks soldStocks = mapper.readValue(json, SoldStocks.class);
         System.out.println(soldStocks.getSymbol());
-        database.insertToSoldTable(soldStocks);
+        try {
+            database.insertToSoldTable(soldStocks);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
 
-        return true;
     }
 }

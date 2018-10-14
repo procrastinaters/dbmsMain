@@ -18,7 +18,9 @@ function connect() {
                 document.getElementById("sex").selectedIndex = "0";
             }else{
                     document.getElementById("sex").selectedIndex="1";
-                }
+                document.getElementById("userpic").src="img/femaleuser.png"
+
+            }
 
 
         });

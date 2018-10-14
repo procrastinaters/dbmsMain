@@ -95,6 +95,114 @@ button.ButtonSignout:hover {
     line-height: 6vh;
 }
 
+.Search{
+    height: 20vh;
+    margin-top: 5vh;
+    width: 100%;
+}
+
+.SearchWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   padding-top: 10vh;
+    box-shadow: 0 -3px 3px rgba(1, 1, 1,0.5);
+}
+
+#SearchInput
+{
+    background: #292c2f;
+    display: block;
+    width: 20vw;
+    height: 7vh;
+    font-size: 3vh;
+    font-family: 'Ubuntu', sans-serif;
+    color:white;
+    padding-left: 2vw;
+}
+
+#SearchButton{
+    background: #292c2f;
+    display: block;
+    height: 7vh;
+    width: 5vw;
+}
+
+
+.Content{
+    height: 75vh;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-bottom: 10vh;
+}
+
+.Summary{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 70vh;
+}
+
+.Heading{
+    color: #333;
+    height: 7vh;
+    margin-left: 3vw;
+    margin-right: 2vw;
+    line-height: 7vh;
+    text-align: center;
+    font-size: 5vh;
+    font-weight: bold;
+    background: white;
+}
+
+#MarketStats{
+    height:60vh;
+    background-color: #fff;
+    width: 90%;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+
+.MarketStatsTable{
+    height : 80%;
+    width: 100%;
+    color: #333;
+    font-size: 3vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.Labels{
+    padding-left: 3vw;
+    padding-right: 3vw;
+}
+
+.Graph{
+    display: block;
+    justify-content: center;
+    width: 50%;
+    height: 70vh;
+    margin-right: 3vw;
+}
+
+
+#chartContainer{
+    height: 70vh;
+    width: 100%;
+
+}
+
+
+
+
+
+
+
+
+
+
 .footer-distributed{
     background-color: #292c2f;
     box-shadow: 0 -3px 3px rgba(1, 1, 1,0.5);
@@ -249,21 +357,21 @@ button.ButtonSignout:hover {
 
 /*@media (max-width: 880px) {*/
 
-    /*.footer-distributed{*/
-        /*font: bold 14px sans-serif;*/
-    /*}*/
+/*.footer-distributed{*/
+/*font: bold 14px sans-serif;*/
+/*}*/
 
-    /*.footer-distributed .footer-left,*/
-    /*.footer-distributed .footer-center,*/
-    /*.footer-distributed .footer-right{*/
-        /*display: block;*/
-        /*width: 100%;*/
-        /*margin-bottom: 40px;*/
-        /*text-align: center;*/
-    /*}*/
+/*.footer-distributed .footer-left,*/
+/*.footer-distributed .footer-center,*/
+/*.footer-distributed .footer-right{*/
+/*display: block;*/
+/*width: 100%;*/
+/*margin-bottom: 40px;*/
+/*text-align: center;*/
+/*}*/
 
-    /*.footer-distributed .footer-center i{*/
-        /*margin-left: 0;*/
-    /*}*/
+/*.footer-distributed .footer-center i{*/
+/*margin-left: 0;*/
+/*}*/
 
 /*}*/

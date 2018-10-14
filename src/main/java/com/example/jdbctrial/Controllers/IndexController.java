@@ -40,7 +40,6 @@ public class IndexController {
 //    @SendTo("/topic/mssgs")
     @Scheduled(fixedRate = 5000)
     public void api() throws SQLException, UnsupportedEncodingException {
-
         getData();
 
     }

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>StockHub</title>
-    <link rel="stylesheet" type="text/css" href="template.css">
-    <link rel="stylesheet" type="text/css" href="dashboard.css">
-    <link rel="stylesheet" type="text/css" href="style2.css">
+    <link rel="stylesheet" type="text/css" href="css/template.css">
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
@@ -27,49 +27,49 @@
         <div class="NavigationLeft">
 
             <div class="n">
-                <img src="StockHubIcon.jpg" alt="Logo" class="LogoImg">
+                <img src="img/StockHubIcon.jpg" alt="Logo" class="LogoImg">
             </div>
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">Home</a>
+                    <a href="index.html" class="NavigationTabLink">Home</a>
                 </div>
             </div>
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">News</a>
+                    <a href="index.html" class="NavigationTabLink">Stocks</a>
                 </div>
             </div>
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Profile_Final.html" class="NavigationTabLink">Profile</a>
+                    <a href="Profile.html" class="NavigationTabLink" id="nav_link">Profile</a>
                 </div>
             </div>
 
-            <div class="Navhover">
+            <div class="Navhoverhttps://www.google.com/search?client=ubuntu&channel=fs&q=about+us+template&ie=utf-8&oe=utf-8">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">Analysis</a>
-                </div>
-            </div>
-
-
-            <div class="Navhover">
-                <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">Trade</a>
+                    <a href="Chart.html" class="NavigationTabLink">Analysis</a>
                 </div>
             </div>
 
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Portfolio.html" class="NavigationTabLink"> Portfolio</a>
+                    <a href="Transaction%20History.html" class="NavigationTabLink" id="nav_link">History</a>
+                </div>
+            </div>
+
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Portfolio.html" class="NavigationTabLink" id="nav_link"> Portfolio</a>
                 </div>
             </div>
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">About Us</a>
+                    <a href="index.html" class="NavigationTabLink">About Us</a>
                 </div>
             </div>
 
@@ -106,16 +106,16 @@
 
                                     <div class="group">
                                         <input required="" class="input" type="text" id="username"><span class="highlight"></span><span class="bar"></span>
-                                        <label class="label" for="date">Email address</label></div>
+                                        <label class="label" style="font-size:2vh;">Email address</label></div>
 
 
                                     <!-- Password input-->
                                     <div class="group">
                                         <input required="" class="input" type="password" id="password"><span class="highlight"></span><span class="bar"></span>
-                                        <label class="label" for="date">Password</label>
+                                        <label class="label" style="font-size:2vh;">Password</label>
                                     </div>
                                     <em>minimum 6 characters</em>
-
+                                    <br/>
                                     <div class="forgot-link">
                                         <a href="#forgot" data-toggle="modal" data-target="#forgot-password"> I forgot my password</a>
                                     </div>
@@ -125,7 +125,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="signin"></label>
                                         <div class="controls">
-                                            <button id="signin" name="signin" class="btn btn-primary btn-block" type="button">Log In</button>
+                                            <button id="signin" name="signin" class="btn btn-primary btn-block" type="button" style="font-size: 2vh;margin-top: -1%">Log In</button>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -138,25 +138,22 @@
                                 <fieldset>
                                     <!-- Sign Up Form -->
                                     <!-- Text input-->
-                                    <div class="group">
-                                        <input required="" class="input" type="text" id="name"><span class="highlight"></span><span class="bar"></span>
-                                        <label class="label" for="date">Name</label></div>
 
 
                                     <!-- Password input-->
                                     <div class="group">
                                         <input required="" class="input" type="text" id="email"><span class="highlight"></span><span class="bar"></span>
-                                        <label class="label" for="date">Email</label></div>
+                                        <label class="label" style="font-size:2vh;">Email</label></div>
 
                                     <!-- Text input-->
                                     <div class="group">
                                         <input required="" class="input" type="password" id="setpassword"><span class="highlight"></span><span class="bar"></span>
-                                        <label class="label" for="date">Password</label></div>
+                                        <label class="label" style="font-size:2vh;">Password</label></div>
                                     <em>1-8 Characters</em>
 
                                     <div class="group2">
-                                        <input required="" class="input" type="password" id="repassword"><span class="highlight"></span><span class="bar"></span>
-                                        <label class="label" for="date">Re-enter password</label></div>
+                                        <input required="" class="input" type="password" id="repassword" style="margin-top: 7%"><span class="highlight"></span><span class="bar"></span>
+                                        <label class="label" style="font-size:2vh;">Re-enter password</label></div>
 
 
 
@@ -253,7 +250,7 @@
 
                     var table = document.createElement('table'), tr, td, row, cell;
                     table.setAttribute('id', 'TickersScrollable');
-                    for (row = 0; row < 2; row++)
+                    for (row = 0; row < 3; row++)
                     {
                         tr = document.createElement('tr');
                         for (cell = 0; cell < 5; cell++)
@@ -274,17 +271,17 @@
         </div>
 
     </div>
-    <div class="tablehead" style="font-family: inherit; font-size: 2vw; color:black; margin-top: 10vh; margin-left: 50%; transform: translate(-15%);">TOP TEN STOCKS</div>
+    <div class="tablehead" style="font-family: inherit; font-size: 2vw; color:black; margin-top: 10vh; margin-left: 50%; transform: translate(-15%);">TOP STOCKS</div>
     <div class="container">
         <div class="row">
             <table class="table table-hover table-responsive" id="Top10TableContentTable">
                 <thead>
                 <tr>
                     <th id="first">Stock ID</th>
-                    <th>CMP</th>
-                    <th>OPEN</th>
-                    <th>CLOSE</th>
+                    <!--<th>CLOSE</th>-->
                     <th>PREVIOUS CLOSE</th>
+                    <th>OPEN</th>
+                    <th>CMP</th>
                     <th>CHANGE</th>
                     <th>BUY</th>
                 </tr>
@@ -297,7 +294,6 @@
                     <td id="m1">15%</td>
                     <td id="l1">34</td>
                     <td id="m1">25%</td>
-                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
                 </tr>
                 <tr id="d2">
                     <td id="first">2</td>
@@ -306,7 +302,6 @@
                     <td id="m1">50%</td>
                     <td id="l1">78</td>
                     <td id="m1">75%</td>
-                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
                 </tr>
                 <tr id="d3">
                     <td id="first">2</td>
@@ -315,7 +310,6 @@
                     <td id="m1">50%</td>
                     <td id="l1">78</td>
                     <td id="m1">75%</td>
-                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
                 </tr>
                 <tr id="d4">
                     <td id="first">2</td>
@@ -324,7 +318,6 @@
                     <td id="m1">50%</td>
                     <td id="l1">78</td>
                     <td id="m1">75%</td>
-                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
                 </tr>
                 <tr id="d5">
                     <td id="first">2</td>
@@ -333,7 +326,6 @@
                     <td id="m1">50%</td>
                     <td id="l1">78</td>
                     <td id="m1">75%</td>
-                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
                 </tr>
                 <tr id="d6">
                     <td id="first">2</td>
@@ -342,7 +334,6 @@
                     <td id="m1">50%</td>
                     <td id="l1">78</td>
                     <td id="m1">75%</td>
-                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
                 </tr>
                 <tr id="d7">
                     <td id="first">2</td>
@@ -351,7 +342,6 @@
                     <td id="m1">50%</td>
                     <td id="l1">78</td>
                     <td id="m1">75%</td>
-                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
                 </tr>
                 <tr id="d8">
                     <td id="first">2</td>
@@ -360,7 +350,6 @@
                     <td id="m1">50%</td>
                     <td id="l1">78</td>
                     <td id="m1">75%</td>
-                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
                 </tr>
                 <tr id="d9">
                     <td id="first">2</td>
@@ -369,7 +358,6 @@
                     <td id="m1">50%</td>
                     <td id="l1">78</td>
                     <td id="m1">75%</td>
-                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
                 </tr>
                 <tr id="d10">
                     <td id="first">2</td>
@@ -378,10 +366,10 @@
                     <td id="m1">50%</td>
                     <td id="l1">78</td>
                     <td id="m1">75%</td>
-                    <td><button onclick="document.getElementById('id01').style.display='block'" class="sell btn btn-warning btn-sm"><span class="glyphicon glyphicon-usd"></span></button></td>
                 </tr>
                 </tbody>
             </table>
+            <button onclick="exportTableToCSV('StockHub.csv')" class="w3-btn w3-round-xlarge" style="font-size: 2vh;font-family: 'Ubuntu', sans-serif;color: white;background-color: #50C878; margin:2vh;margin-left: 47vw;margin-top: -3vh">Export HTML Table To CSV File</button>
         </div>
     </div>
 
@@ -393,12 +381,33 @@
 
 </div>
 
+<div id="success" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom"  style="width:30vw; height:20vh;margin-top: 10%">
+            <header class="w3-container custom-modal-header">
+        <span onclick="document.getElementById('success').style.display='none'"
+              class="w3-button w3-display-topright" id="refresh">&times;</span>
+            <h2>Transaction Success</h2>
+        </header>
+        <div class="w3-container">
+            <p></p>
+            <p style="color:#009900; font-family: 'Ubuntu', sans-serif;font-size: 3vh;">YOUR TRANSACTION WAS SUCCESSFUL!</p>
+        </div>
+    </div>
+</div>
 
-
-
-
-<div class="w3-container">
-
+<div id="failure" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom"  style="width:30vw; height:20vh;margin-top: 10%">
+        <header class="w3-container custom-modal-header">
+        <span onclick="document.getElementById('failure').style.display='none'"
+              class="w3-button w3-display-topright" id="refresh">&times;</span>
+            <h2>Transaction Failure</h2>
+        </header>
+        <div class="w3-container">
+            <p></p>
+            <p style="color:#BB3F30; font-family: 'Ubuntu', sans-serif;font-size: 3vh;">YOUR TRANSACTION FAILED!</p>
+        </div>
+    </div>
+</div>
     <!--<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Buy/Sell</button>-->
 
     <div id="id01" class="w3-modal">
@@ -413,21 +422,21 @@
 
                     <div class="form-group">
                         <div class="col-xs-6">
-                            <label for="account"><h4>Account</h4></label>
+                            <label><h4>Account</h4></label>
                             <input type="text" class="form-control" name="account" id="buyaccount" placeholder="Account" title="enter your account number." readonly>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-xs-6">
-                            <label for="stockid"><h4>Stock ID</h4></label>
+                            <label><h4>Stock ID</h4></label>
                             <input type="text" class="form-control" name="stockid" id="buystockid" placeholder="Stock ID" readonly>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-xs-6">
-                            <label for="value"><h4>Current value of stock</h4></label>
+                            <label><h4>Current value of stock</h4></label>
                             <input type="text" class="form-control" name="value" id="currvalue" placeholder="Current value of stock" readonly>
                         </div>
                     </div>
@@ -435,38 +444,15 @@
 
                     <div class="form-group">
                         <div class="col-xs-6">
-                            <label for="quantity"><h4>Quantity</h4></label>
+                            <label><h4>Quantity</h4></label>
                             <input type="number" class="form-control" name="quantity" id="buyquantity" placeholder="Quantity of stocks you want to purchase" min="0" step="1" required>
                         </div>
                     </div>
 
-                    <!--<div class="form-group">-->
-
-                    <!--<div class="col-xs-6">-->
-                    <!--<label for="ordertype"><h4>Order type</h4></label>-->
-                    <!--<div >-->
-                    <!--<input type="radio" name="rb1" value="market"> Market-->
-                    <!--&nbsp;&nbsp;&nbsp;-->
-                    <!--<input type="radio" name="rb1" value="limit"> Limit-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-
-
-
-
-                    <!--<div class="form-group">-->
-
-                    <!--<div class="col-xs-6">-->
-                    <!--<label for="limit"><h4>Limit</h4></label>-->
-                    <!--<input type="text" class="form-control" id="stock" placeholder="Limit of stock">-->
-                    <!--</div>-->
-                    <!--</div>-->
-
                     <div class="form-group">
 
                         <div class="col-xs-6">
-                            <label for="total"><h4>Total payable amount</h4></label>
+                            <label><h4>Total payable amount</h4></label>
                             <input type="text" class="form-control" id="buytotal" placeholder="Total amount to pay" readonly>
                         </div>
                     </div>
@@ -556,5 +542,6 @@
 <script src="/webjars/sockjs-client/sockjs.min.js"></script>
 <script src="/webjars/stomp-websocket/stomp.min.js"></script>
 <script src="js/dashboard.js"></script>
+<script src="js/exportToCSV.js"></script>
 </body>
 </html>

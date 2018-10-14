@@ -10,16 +10,11 @@ table{
     color:#fff;
 }
 
-#a{
-    min-height: 70.1vh;
-
-}
-
 #bought_table{
     margin-top: 3vh;
     font-family: 'Ubuntu', sans-serif;
     font-size: 1.1vw;
-    margin-left: -25%;
+    margin-left: -15%;
     background-color: #fff;
     box-shadow: 5px 5px 5px #111;
 

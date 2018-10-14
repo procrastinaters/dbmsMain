@@ -11,21 +11,22 @@ public class BoughtStocks {
     Integer quantity;
     Float pricePerShare;
     Float price;
-    Integer transId;
-    Integer sold;
-
+    Float pl;
 
 
     public BoughtStocks(){}
 
-    public BoughtStocks(String username, String stock, Integer quantity, Float pricePerShare, Float price, Integer transId, Integer sold) {
+    public BoughtStocks(String username, String stock, Integer quantity, Float pricePerShare, Float price, Float pl) {
         this.username = username;
         this.stock = stock;
         this.quantity = quantity;
         this.pricePerShare = pricePerShare;
         this.price = price;
-        this.transId=transId;
-        this.sold=sold;
+        this.pl=pl;
+    }
+
+    public Float getPl() {
+        return pl;
     }
 
     public String getUsername() {
@@ -48,11 +49,5 @@ public class BoughtStocks {
         return price;
     }
 
-    public Integer getTransId() {
-        return transId;
-    }
 
-    public Integer getSold() {
-        return sold;
-    }
 }

@@ -8,17 +8,15 @@ public class CreateHistoryTable {
 
     private String setSql(){
         String sql;
-        sql="CREATE TABLE IF NOT EXISTS transactionhistory (" +
+        sql="CREATE TABLE IF NOT EXISTS soldstocks (" +
                 "TransId varchar(20) NOT NULL," +
                 "Ticker varchar(20) NOT NULL," +
                 "Username VARCHAR(30) DEFAULT NULL," +
                 "Quantity int(11) NOT NULL," +
-                "Date date NOT NULL," +
+                "DateTime timestamp," +
                 "Sell_Price INT(11) NOT NULL,"+
                 "ProfitLoss varchar(10) DEFAULT NULL," +
-                "PRIMARY KEY (TransId)," +
-                "KEY Username (Username)," +
-                "FOREIGN KEY (Username) REFERENCES account (username)" +
+                "PRIMARY KEY (TransId)" +
                 ")";
         return sql;
     }

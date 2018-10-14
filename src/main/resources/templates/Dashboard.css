@@ -123,7 +123,7 @@ button.ButtonSignout:hover {
     text-align: center;
 }
 
-#TickersScrollable {
+.TickersScrollable {
     max-height: 20vh;
     width: 100%;
     margin: 0 auto;
@@ -131,14 +131,13 @@ button.ButtonSignout:hover {
     background-color: #c0c0c0;
 }
 
-#TickersScrollable tr td:nth-child(even) {background-color: orange;}
+.TickersScrollable tr td:nth-child(even) {background-color: orange;}
 
-#TickersScrollable tr td:nth-child(odd) {background-color: #c0c0c0;}
+.TickersScrollable tr td:nth-child(odd) {background-color: #c0c0c0;}
 
-td#TickerBlock{
+td.TickerBlock{
   width: 20vw;
   height: 20vh;
-    white-space:pre;
 }
 
 #Items {
@@ -258,7 +257,6 @@ tr.Top10TableContentTableRow{
   line-height: 4vh;
   width: 95%;
   height: 1.5vh;
-  font-size: 1.3vh;
 }
 
 th, td {
@@ -402,4 +400,61 @@ a.footer-list-header {
 .footer-bottom-wrapper {
   font-size: 1.5vw;
   color: #111;
+}
+
+.w3-modal{
+
+    width: 10000px;
+}
+
+#TickersScrollable {
+    max-height: 20vh;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    background-color: #c0c0c0;
+}
+
+#TickersScrollable tr td:nth-child(even) {background-color: orange;}
+
+#TickersScrollable tr td:nth-child(odd) {background-color: #c0c0c0;}
+
+td#TickerBlock{
+    width: 20vw;
+    height: 20vh;
+    white-space:pre;
+}
+
+#Items {
+    -webkit-animation: scroll 12s infinite;
+    -moz-animation: scroll 12s infinite;
+    -ms-animation: scroll 12s infinite;
+}
+
+@-webkit-keyframes scroll {
+    0%   { margin-top: 0; }
+    27.33%  { margin-top: 0 }
+    33.33%  { margin-top: -500px; }
+    60.66% { margin-top: -500px; }
+    66.66% { margin-top: -1000px; }
+    94.99% { margin-top: -1000px; }
+    100%  { margin-top: 0 }
+}
+@-moz-keyframes scroll {
+    0%   { margin-top: 0; }
+    27.33%  { margin-top: 0 }
+    33.33%  { margin-top: -20vh; }
+    60.66% { margin-top: -20vh; }
+    66.66% { margin-top: -40vh; }
+    94.99% { margin-top: -40vh; }
+    100%  { margin-top: 0 }
+}
+@-ms-keyframes scroll {
+    0%   { margin-top: 0; }
+    27.33%  { margin-top: 0 }
+    33.33%  { margin-top: -500px; }
+    60.66% { margin-top: -500px; }
+    66.66% { margin-top: -1000px; }
+    94.99% { margin-top: -1000px; }
+    100%  { margin-top: 0 }
 }
