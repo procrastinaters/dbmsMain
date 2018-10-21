@@ -12,6 +12,7 @@ public class JdbctrialApplication  {
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(JdbctrialApplication.class, args);
 
+
 		Database database=new Database();
 
 		database.connectAndCreate();

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template</title>
+    <link rel="stylesheet" type="text/css" href="css/template.css">
+    <link rel="stylesheet" type="text/css" href="css/admin.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<div id="a">
+    <div id="Navigation">
+
+        <div class="NavigationLeft">
+
+            <div class="n">
+                <img src="img/StockHubIcon.jpg" alt="Logo" class="LogoImg">
+            </div>
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="index.html" class="NavigationTabLink">Home</a>
+                </div>
+            </div>
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="Chart.html" class="NavigationTabLink">Analysis</a>
+                </div>
+            </div>
+
+
+            <div class="Navhover">
+                <div class="NavigationTab">
+                    <a href="index.html" class="NavigationTabLink">About Us</a>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="tablehead" style="font-family: 'Ubuntu', sans-serif; font-size: 2vw; color:black; margin-top: 10vh; margin-left: 45%; transform: translate(-15%);">USER INFORMATION</div>
+
+        <div class="row">
+            <table class="table table-hover table-responsive" id="bought_table" >
+
+                <tr id="table-head">
+                        <td>Username</td>
+                        <td>Buy Transactions</td>
+                        <td>Sell Transactions</td>
+                        <td>Balance</td>
+                        <td>Send Mail</td>
+                </tr>
+
+            </table>
+
+        </div>
+        <button onclick="exportTableToCSV('StockHub.csv')" class="w3-btn w3-round-xlarge" style="font-size: 2vh;font-family: 'Ubuntu', sans-serif;color: white;background-color: #50C878; margin:2vh;margin-left: 45vw;margin-top: 0.5vh">Export HTML Table To CSV File</button>
+
+    </div>
+
+</div>
+
+
+<footer class="footer-distributed">
+
+    <div class="footer-left">
+
+        <h3>STOCK<span style="color: #50C878">HUB</span></h3>
+
+        <p class="footer-links">
+            <a href="#">Home</a>
+            ·
+            <a href="#">Analysis</a>
+            ·
+            <a href="#">About Us</a>
+        </p>
+
+        <p class="footer-company-name">StockHub &copy; 2018</p>
+    </div>
+
+    <div class="footer-center">
+
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>PICT, Dhankawadi</span> Pune, India</p>
+        </div>
+
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+91 9999999999</p>
+        </div>
+
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:support@company.com">support@stockhub.com</a></p>
+        </div>
+
+    </div>
+
+    <div class="footer-right">
+
+        <p class="footer-company-about">
+            <span>About the company</span>
+            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+        </p>
+
+        <div class="footer-icons">
+
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+
+        </div>
+
+    </div>
+
+</footer>
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/exportToCSV.js"></script>
+</body>
+</html>

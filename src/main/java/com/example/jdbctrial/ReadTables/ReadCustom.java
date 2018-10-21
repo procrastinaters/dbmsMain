@@ -1,9 +1,12 @@
 package com.example.jdbctrial.ReadTables;
 
+import com.example.jdbctrial.InformationObjects.Admin;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class ReadCustom {
     private ResultSet resultSet;
@@ -47,5 +50,38 @@ public class ReadCustom {
         Statement statement=connection.createStatement();
 
         return statement.executeQuery(sql);
+    }
+
+    public ArrayList<Admin> readAdmin (Connection connection) throws SQLException {
+        String sql="SELECT Username FROM account";
+        Statement statement=connection.createStatement();
+        ResultSet usernames;
+        usernames=statement.executeQuery(sql);
+        ArrayList<String> username=new ArrayList<>();
+        usernames.first();
+        do{
+            username.add(usernames.getString("Username"));
+        }while(usernames.next());
+        ArrayList<Admin> admin=new ArrayList<>();
+        int i=0;
+        do{
+            sql="select b1.username as Username,b as boughtNo,s as soldNo,balance from (select username,count(quantity) as b from boughtstocks group by username) as b1," +
+                    "(select username,count(quantity) as s from soldstocks group by username) as s1,account as a where b1.username=s1.  username and a.username=b1.username and b1.username='" + username.get(i) +"'";
+            try {
+                this.resultSet = statement.executeQuery(sql);
+                this.resultSet.first();
+                admin.add(new Admin(username.get(i),
+                        this.resultSet.getInt("boughtNo"),
+                        this.resultSet.getInt("soldNo"),
+                        this.resultSet.getFloat("balance")));
+            }catch (Exception e){
+                admin.add(new Admin(username.get(i),
+                        0,0,1000f));
+
+            }
+            i++;
+        }while(i<username.size());
+
+        return admin;
     }
 }

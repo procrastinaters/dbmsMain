@@ -6,6 +6,8 @@ import com.example.jdbctrial.InformationObjects.Account;
 import com.example.jdbctrial.InformationObjects.User;
 import com.example.jdbctrial.ReadTables.ReadAccount;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.json.JSONObject;
+import org.json.JSONString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -68,11 +70,24 @@ public class UserController {
         {
 
         }
-        System.out.println("TRUWWEE");
         database.insertToAccount(account);
-        System.out.println("DONEEEE");
         return true;
     }
 
+    @MessageMapping("/balance")
+    @SendToUser("/queue/balance")
+    public Account balance(String json) throws IOException, SQLException {
 
+        Account account = null;
+        JSONObject obj = new JSONObject(json);
+
+        String username= obj.getString("username");
+        ResultSet resultSet=database.readAccount();
+        resultSet.first();
+        do{
+            if(resultSet.getString("Username").equals(username))
+                account = new Account(resultSet.getString("Username"),resultSet.getInt("Balance"),resultSet.getString("Password"));
+        }while(resultSet.next());
+        return account;
+    }
 }

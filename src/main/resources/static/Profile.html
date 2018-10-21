@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Template</title>
+    <title>StockHub</title>
     <link rel="stylesheet" type="text/css" href="css/template.css">
     <link rel="stylesheet" type="text/css" href="css/profile.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -30,32 +30,32 @@
             </div>
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">Home</a>
+                    <a href="index.html" class="NavigationTabLink">Home</a>
                 </div>
             </div>
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">News</a>
+                    <a href="index.html" class="NavigationTabLink">Stocks</a>
                 </div>
             </div>
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Profile_Final.html" class="NavigationTabLink">Profile</a>
+                    <a href="Profile.html" class="NavigationTabLink">Profile</a>
                 </div>
             </div>
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">Analysis</a>
+                    <a href="Chart.html" class="NavigationTabLink">Analysis</a>
                 </div>
             </div>
 
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">Trade</a>
+                    <a href="Transaction%20History.html" class="NavigationTabLink">History</a>
                 </div>
             </div>
 
@@ -166,7 +166,8 @@
                     <div class="form-group">
                         <div class="col-xs-12">
                             <br>
-                            <center><button class="btn btn-lg btn-success" type="button" id="save"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                            <center><button class="btn btn-lg btn-success" type="button" id="save"  ><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                <button class="btn btn-lg btn-success" type="button" id="addbalance"><i class="glyphicon glyphicon-ok-sign"></i> Balance</button></center>
                         </div>
                     </div>
                     </form>
@@ -182,6 +183,65 @@
 
 </div>
 
+<div id="balance" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom"  style="width:40vw; height:45vh;">
+        <header class="w3-container custom-modal-header">
+      <span onclick="document.getElementById('balance').style.display='none'"
+            class="w3-button w3-xlarge w3-display-topright">&times;</span>
+            <h2>Buy Transaction</h2>
+        </header>
+        <div id="Buy" class="w3-container city">
+            <form class="form" id="registrationForm">
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label><h4>Account</h4></label>
+                        <input type="text" class="form-control" name="account" id="buyaccount" placeholder="Account" title="enter your account number." readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label><h4>Stock ID</h4></label>
+                        <input type="text" class="form-control" name="stockid" id="buystockid" placeholder="Stock ID" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label><h4>Current value of stock</h4></label>
+                        <input type="text" class="form-control" name="value" id="currvalue" placeholder="Current value of stock" readonly>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label><h4>Quantity</h4></label>
+                        <input type="number" class="form-control" name="quantity" id="buyquantity" placeholder="Quantity of stocks you want to purchase" min="0" step="1" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-xs-6">
+                        <label><h4>Total payable amount</h4></label>
+                        <input type="text" class="form-control" id="buytotal" placeholder="Total amount to pay" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <br>
+                        <button class="btn btn-lg btn-success" type="button" id="purchase"><i class="glyphicon glyphicon-euro"></i>Purchase stock</button>
+                        <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
 
 <footer class="footer-distributed">
 

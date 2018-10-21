@@ -13,7 +13,7 @@ var ticker_table = document.getElementById("TickersScrollable");
 
 var flag1=0,flag=0;
 var prev=[];
-
+var balance=0;
 var selectedRow=0;
 
 if(localStorage.getItem("user")==null){
@@ -28,6 +28,7 @@ if(localStorage.getItem("user")==null){
 
 document.getElementById("purchase").addEventListener("click",function (ev) {
 
+    if(!document.getElementById("buytotal").value>balance)
     stompClient.send("/app/buy", {}, JSON.stringify({"username":localStorage.getItem("user"),
         "stock":document.getElementById("buystockid").value,
         "quantity":document.getElementById("buyquantity").value,
@@ -111,8 +112,9 @@ var socket = new SockJS('/gs-guide-websocket');
         stompClient.subscribe('/user/queue/reply', connection2);
         stompClient.subscribe('/user/queue/register', connection3);
         stompClient.subscribe('/user/queue/buy', connection4);
+        stompClient.subscribe('/user/queue/balance', connection5);
         stompClient.send("/app/initial", {}, JSON.stringify({'name': "connect"}));
-
+        stompClient.send("/app/balance",{},JSON.stringify({'username': localStorage.getItem("user")}));
     });
 
 
@@ -140,9 +142,10 @@ function connection1(message) {
                 selectedRow=e.target.closest('tr').rowIndex;
                 document.getElementById("buystockid").value=table.rows[selectedRow].cells[0].innerHTML;
                 document.getElementById("buyaccount").value=localStorage.getItem("user");
-                document.getElementById('currvalue').value=table.rows[selectedRow].cells[2].innerHTML;
+                document.getElementById('currvalue').value=table.rows[selectedRow].cells[3].innerHTML;
                 document.getElementById("buyquantity").value=1;
                 document.getElementById("buytotal").value=document.getElementById("buyquantity").value*document.getElementById('currvalue').value;
+                document.getElementById("balance").value=balance;
             });
         document.getElementById("buytotal").value=document.getElementById("buyquantity").value*document.getElementById('currvalue').value;
         document.getElementById('currvalue').value=table.rows[selectedRow].cells[2].innerHTML;
@@ -211,5 +214,13 @@ function connection4(message) {
         document.getElementById('failure').style.display='block'
     }
 
+
+}
+
+function connection5(message) {
+
+    message=JSON.parse(message.body);
+
+    balance=message.balance;
 
 }

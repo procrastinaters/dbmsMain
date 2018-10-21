@@ -91,6 +91,7 @@ public class TablesController {
                 }catch (Exception e){
 //                    e.printStackTrace();
                 }
+                if(qty>0)
                 boughtStocks.add(new BoughtStocks(resultSet.getString("Username"),
                         resultSet.getString("StockId"),
                         qty,

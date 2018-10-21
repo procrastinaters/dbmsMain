@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Template</title>
+    <title>StockHub</title>
     <link rel="stylesheet" type="text/css" href="css/template.css">
     <link rel="stylesheet" type="text/css" href="css/portfolio.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -30,13 +30,13 @@
             </div>
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="Dashboard.html" class="NavigationTabLink">Home</a>
+                    <a href="index.html" class="NavigationTabLink">Home</a>
                 </div>
             </div>
 
             <div class="Navhover">
                 <div class="NavigationTab">
-                    <a href="index.html" class="NavigationTabLink">News</a>
+                    <a href="index.html" class="NavigationTabLink">Stocks</a>
                 </div>
             </div>
 
@@ -87,29 +87,31 @@
 
 
     <div class="container">
-
-        <div class="tablehead" style="font-family: 'Ubuntu', sans-serif; font-size: 2vw; color:black; margin-top: 15vh; margin-left: 27%; transform: translate(-15%);">TRANSACTION HISTORY</div>
+        <div class="hist" style="width: 90%">
+        <div class="tablehead" style="font-family: 'Ubuntu', sans-serif; font-size: 2vw; color:black; margin-top: 15vh; margin-left: 5%;transform: translate(-15%);">TRANSACTION HISTORY</div>
         <div class="row">
-            <table class="table table-hover table-responsive" id="bought_table">
+            <table class="table table-hover table-responsive" id="bought_table" style="margin-left: -25%;width:45vw">
 
                 <tr id="table-head">
-                    <td>Trans&nbsp;Id&nbsp;&nbsp;</td>
+                    <td>&nbsp;Trans&nbsp;Id&nbsp;&nbsp;</td>
                         <td>Time&nbsp;&nbsp;</td>
                         <td>Stock&nbsp;ID&nbsp;&nbsp;</td>
                         <td>Quantity&nbsp;&nbsp;</td>
-                        <td>Sold&nbsp;at/&nbsp;Bought&nbsp;at&nbsp;&nbsp;</td>
-                        <td>Profit/Loss&nbsp;</td>
+                        <td>Sold&nbsp;at/&nbsp;Bought&nbsp;at</td>
                 </tr>
 
             </table>
-
-            <div class="details">
+        </div>
+        </div>
+            <div class="details" >
+                <div id="chartContainer" style="height: 60vh; width: 50vw;margin-left: 50%;margin-top: -70%;"></div>
+                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
             </div>
 
-        </div>
-        <button onclick="exportTableToCSV('StockHub.csv')" class="w3-btn w3-round-xlarge" style="font-size: 2vh;font-family: 'Ubuntu', sans-serif;color: white;background-color: #50C878; margin:2vh;margin-left: 71vh;margin-top: 0.5vh">Export HTML Table To CSV File</button>
 
+
+        <button onclick="exportTableToCSV('StockHub.csv')" class="w3-btn w3-round-xlarge" style="font-size: 2vh;font-family: 'Ubuntu', sans-serif;color: white;background-color: #50C878; margin:2vh;margin-left: 71vh;margin-top: 0.5vh">Export HTML Table To CSV File</button>
     </div>
 
 
@@ -215,7 +217,7 @@
             <a href="#">About Us</a>
         </p>
 
-        <p class="footer-company-name">StockHub &copy; 2018</p>
+        <p class="footer-company-namloat: righte">StockHub &copy; 2018</p>
     </div>
 
     <div class="footer-center">

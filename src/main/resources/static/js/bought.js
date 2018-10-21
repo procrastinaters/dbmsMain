@@ -1,5 +1,6 @@
 // document.getElementsByClassName("tablink")[0].click();
 var selectedRow=0;
+var qty=document.getElementById("sell_quantity");
 var table= document.getElementById("bought_table");
 document.getElementById("refresh").addEventListener("click",function (ev) {
 
@@ -53,10 +54,8 @@ function connect() {
                     table.rows[i + 1].cells[2].innerHTML = message[i].quantity;
                     table.rows[i + 1].cells[4].innerHTML = message[i].pl;
                     table.rows[i + 1].cells[5].innerHTML = message[i].pl/100;
-                    table.rows[i + 1].cells[8].innerHTML = "<b  class=\"w3-button \" style='background-color: #50C878;color:white;border-radius: 5px;box-shadow: 2px 3px 2px #111;' onclick=\"document.getElementById('id01').style.display='block'\">SELL</b>";
+                    table.rows[i + 1].cells[8].innerHTML = "<b  class=\"w3-button \" style='background-color: #50C878;color:white;border-radius: 5px;box-shadow: 2px 3px 2px #111;' onclick=\"document.getElementById('id01').style.display='block';qty.style.backgroundColor='white'\">SELL</b>";
                     table.rows[i + 1].cells[8].addEventListener("click", function (e) {
-                        // document.getElementById('id01').style.display='block';
-                        // selectedRow=e.target.closest('tr').rowIndex;
                         selectedRow = e.target.closest('tr').rowIndex;
                         document.getElementById("sell_stockid").value = table.rows[selectedRow].cells[0].innerHTML;
                         document.getElementById("sell_account").value = localStorage.getItem("user");
@@ -65,13 +64,8 @@ function connect() {
                         document.getElementById("sell_total").value = table.rows[selectedRow].cells[2].innerHTML * table.rows[selectedRow].cells[3].innerHTML;
                         document.getElementById("sell_prevvalue").value = table.rows[selectedRow].cells[1].innerHTML;
                         document.getElementById("gain").value = table.rows[selectedRow].cells[3].innerHTML * table.rows[selectedRow].cells[2].innerHTML - table.rows[selectedRow].cells[1].innerHTML * table.rows[selectedRow].cells[2].innerHTML;
-                        // document.getElementById("buyaccount").value=localStorage.getItem("user");
-                        // document.getElementById('currvalue').value=table.rows[selectedRow].cells[2].innerHTML;
-                        // document.getElementById("buyquantity").value=1;
-                        // document.getElementById("buytotal").value=document.getElementById("buyquantity").value*document.getElementById('currvalue').value;
                     });
                 }
-            // }
         });
         stompClient.send("/app/initial", {}, JSON.stringify({'username':localStorage.getItem("user")}));
         stompClient.subscribe('/topic/mssgs', function (message) {
@@ -103,19 +97,11 @@ function connect() {
             stompClient.subscribe('/user/queue/sell', function (message) {
                 message = JSON.parse(message.body);
 
-                // if(message==true){
-                //     document.location.href="/Portfolio.html";
-                // }
-                // else{
-                //     console.log("NOOO");
-                // }
-
                 if(message==true)
                 {
                     document.getElementById('id01').style.display='none'
 
                     document.getElementById('success').style.display='block'
-                    // document.location.href="/";
 
                 }
                 else{
@@ -130,7 +116,19 @@ function connect() {
         })
     });
 }
+qty.addEventListener("focusout",function (ev) {
 
+    if(qty.value>table.rows[selectedRow].cells[2].innerHTML) {
 
+        qty.value=table.rows[selectedRow].cells[2].innerHTML
+    }
+});
+qty.addEventListener("click",function (ev) {
+
+    if(qty.value>table.rows[selectedRow].cells[2].innerHTML) {
+
+        qty.value=table.rows[selectedRow].cells[2].innerHTML
+    }
+});
 
 connect();

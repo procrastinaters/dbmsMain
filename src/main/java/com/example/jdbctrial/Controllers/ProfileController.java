@@ -34,7 +34,6 @@ public class ProfileController {
 
         JSONObject obj = new JSONObject(json);
 
-        System.out.println(obj);
         String username= obj.getString("username");
 
         ResultSet resultSet = database.readUser(username);

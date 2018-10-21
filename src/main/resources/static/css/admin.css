@@ -1,0 +1,26 @@
+#bought_table{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.1vw;
+
+    background-color: #fff;
+    box-shadow: 5px 5px 5px #111;
+
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+}
+#first{
+    padding-left: 2vw;
+}
+.container{
+    margin-top: 5vh;
+    /*padding: 10px;*/
+    width: 70vw;
+    /*margin-bottom: 10vh;*/
+}
+
+#table-head {
+    font-size: 1.3vw;
+    background-color: #343434;
+    color: white;
+    box-shadow: 0 3px 3px #111;
+}

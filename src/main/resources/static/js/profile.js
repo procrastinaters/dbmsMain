@@ -61,3 +61,7 @@ bttn.addEventListener("click",function () {
     stompClient.send("/app/completeProfile", {}, JSON.stringify({'email': localStorage.getItem("user"),'name':name,'sex':sex,'contactNo':mob,'dob':dob}));
 
 });
+    document.getElementById("addbalance").addEventListener("click", function (ev) {
+
+    document.getElementById("balance").style.display="block";
+});

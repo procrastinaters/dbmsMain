@@ -158,6 +158,11 @@ public class Database{
 
         return (new ReadIdTable().readSellId(myConn));
     }
+    public ArrayList<Admin> readAdmin() throws SQLException {
+
+        return (new ReadCustom().readAdmin(myConn));
+    }
+
     public void updateStocks(Stock[] stocks){
 
         new UpdateStocks(myConn,stocks);
